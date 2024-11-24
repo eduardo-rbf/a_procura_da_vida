@@ -1,6 +1,6 @@
 extends TextureRect
  
-func _get_drag_data(at_position):
+func _get_drag_data(_at_position):
 	var preview_texture = TextureRect.new()
  
 	preview_texture.texture = texture
@@ -43,5 +43,4 @@ func _drop_data(_pos, data):
 			dir = 3  # left
 
 	if dir != -1:
-		var grid = get_parent().get_parent().get_node("Grid-mov")
-		grid.addQuee(pos, dir)
+		Global.addQueue(pos, dir) # Adiciona a direção na fila usando o Singleton Global
