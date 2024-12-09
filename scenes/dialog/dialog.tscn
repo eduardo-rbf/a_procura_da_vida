@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwsb8x58jdcqf"]
+
+[ext_resource type="Script" path="res://scripts/dialog/dialog.gd" id="1_y8egx"]
+[ext_resource type="AudioStream" uid="uid://bw3dlg8pd6uoo" path="res://sounds/effects/dialog_sound.mp3" id="2_n5lnj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8upn8"]
+
+[node name="Dialog" type="Control" node_paths=PackedStringArray("_name", "_dialog", "_faceset", "_char_sound")]
+custom_minimum_size = Vector2(640, 160)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -200.0
+offset_right = 320.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_y8egx")
+_name = NodePath("Background/HBoxContainer/VBoxContainer/Name")
+_dialog = NodePath("Background/HBoxContainer/VBoxContainer/Message")
+_faceset = NodePath("Background/HBoxContainer/Border/Faceset")
+_char_sound = NodePath("Char Sound")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background"]
+custom_minimum_size = Vector2(632, 152)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -310.0
+offset_top = -70.0
+offset_right = 310.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Border" type="ColorRect" parent="Background/HBoxContainer"]
+custom_minimum_size = Vector2(144, 0)
+layout_mode = 2
+
+[node name="Faceset" type="TextureRect" parent="Background/HBoxContainer/Border"]
+custom_minimum_size = Vector2(140, 146)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -69.0
+offset_right = 70.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="Background/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Nome"
+label_settings = SubResource("LabelSettings_8upn8")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Message" type="RichTextLabel" parent="Background/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Char Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_n5lnj")

@@ -1,0 +1,15 @@
+AnimationPlayer
+AnimationTree
+TextureButton
+Sprite2D
+GridContainer
+Panel
+TextureRect
+HBoxContainer
+VBoxContainer
+TileMap
+TileMapLayer
+TextEdit
+Control
+Container
+Button

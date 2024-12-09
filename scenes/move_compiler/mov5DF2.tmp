@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba588xkjf6cua"]
+
+[ext_resource type="Script" path="res://scripts/move_compiler/move_compiler.gd" id="1_8of07"]
+[ext_resource type="Texture2D" uid="uid://cnt742ok817lu" path="res://sprites/move_compiler/right_btn.png" id="1_n7ts7"]
+[ext_resource type="Texture2D" uid="uid://bkr4h1gbapqgr" path="res://sprites/move_compiler/left_btn.png" id="3_00qgr"]
+[ext_resource type="Script" path="res://scripts/move_compiler/drag_drop.gd" id="3_x56fq"]
+
+[node name="Move Compiler" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8of07")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 104.0
+offset_bottom = 84.0
+scale = Vector2(2, 2)
+theme_override_constants/separation = 20
+
+[node name="Slots" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="Buttons Container" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Left Button" type="TextureRect" parent="VBoxContainer/Buttons Container"]
+layout_mode = 2
+texture = ExtResource("3_00qgr")
+script = ExtResource("3_x56fq")
+
+[node name="Right Button" type="TextureRect" parent="VBoxContainer/Buttons Container"]
+layout_mode = 2
+texture = ExtResource("1_n7ts7")
+script = ExtResource("3_x56fq")

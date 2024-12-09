@@ -1,0 +1,379 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvfgtrpxkoikb"]
+
+[ext_resource type="FontFile" path="res://resources/roboto_dynamic_font.tres" id="1"]
+[ext_resource type="FontFile" uid="uid://foc3m18h6wix" path="res://fonts/roboto_slab.ttf" id="2"]
+[ext_resource type="Script" path="res://scripts/level_selector/level_selector.gd" id="3"]
+
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("2")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="3"]
+
+[sub_resource type="Theme" id="4"]
+HScrollBar/styles/scroll = SubResource("3")
+
+[sub_resource type="FontFile" id="2"]
+fallbacks = Array[Font]([ExtResource("2")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[node name="LevelSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3")
+
+[node name="HContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 12
+
+[node name="Menu" type="Button" parent="HContainer" groups=["Button"]]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1")
+text = "Menu"
+
+[node name="StarContainer" type="Control" parent="HContainer"]
+custom_minimum_size = Vector2(80, 30)
+layout_mode = 2
+
+[node name="Background" type="ColorRect" parent="HContainer/StarContainer"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -15.0
+offset_right = 40.0
+offset_bottom = 15.0
+color = Color(0, 0, 0, 0.607843)
+
+[node name="Text" type="Label" parent="HContainer/StarContainer/Background"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -11.0
+offset_right = 26.0
+offset_bottom = 11.0
+theme_override_fonts/font = SubResource("1")
+text = "⭐ 1/34"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollList" type="ScrollContainer" parent="."]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -150.0
+offset_right = 384.0
+offset_bottom = 150.0
+theme = SubResource("4")
+
+[node name="HContainer" type="HBoxContainer" parent="ScrollList"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Level1Container" type="Control" parent="ScrollList/HContainer"]
+custom_minimum_size = Vector2(90, 300)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="1" type="Button" parent="ScrollList/HContainer/Level1Container" groups=["Button"]]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -24.5
+offset_right = 25.0
+offset_bottom = 24.5
+focus_mode = 0
+theme_override_fonts/font = SubResource("2")
+text = "1"
+
+[node name="Text" type="Label" parent="ScrollList/HContainer/Level1Container/1"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_top = -11.0
+offset_right = 10.0
+offset_bottom = 11.0
+theme_override_fonts/font = SubResource("1")
+text = "⭐ ⭐"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Level2Container" type="Control" parent="ScrollList/HContainer"]
+custom_minimum_size = Vector2(90, 300)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="2" type="Button" parent="ScrollList/HContainer/Level2Container" groups=["Button"]]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -24.5
+offset_right = 25.0
+offset_bottom = 24.5
+focus_mode = 0
+theme_override_fonts/font = SubResource("2")
+text = "2"
+
+[node name="Text" type="Label" parent="ScrollList/HContainer/Level2Container/2"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_top = -11.0
+offset_right = 10.0
+offset_bottom = 11.0
+theme_override_fonts/font = SubResource("1")
+text = "⭐"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Level3Container" type="Control" parent="ScrollList/HContainer"]
+custom_minimum_size = Vector2(90, 300)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="3" type="Button" parent="ScrollList/HContainer/Level3Container" groups=["Button"]]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -24.5
+offset_right = 25.0
+offset_bottom = 24.5
+focus_mode = 0
+theme_override_fonts/font = SubResource("2")
+text = "3"
+
+[node name="Text" type="Label" parent="ScrollList/HContainer/Level3Container/3"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_top = -11.0
+offset_right = 22.0
+offset_bottom = 11.0
+theme_override_fonts/font = SubResource("1")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Level4Container" type="Control" parent="ScrollList/HContainer"]
+custom_minimum_size = Vector2(90, 300)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="4" type="Button" parent="ScrollList/HContainer/Level4Container" groups=["Button"]]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -24.5
+offset_right = 25.0
+offset_bottom = 24.5
+focus_mode = 0
+theme_override_fonts/font = SubResource("2")
+text = "?"
+
+[node name="Text" type="Label" parent="ScrollList/HContainer/Level4Container/4"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_top = -11.0
+offset_right = 22.0
+offset_bottom = 11.0
+theme_override_fonts/font = SubResource("1")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Level5Container" type="Control" parent="ScrollList/HContainer"]
+custom_minimum_size = Vector2(90, 300)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="5" type="Button" parent="ScrollList/HContainer/Level5Container" groups=["Button"]]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -24.5
+offset_right = 25.0
+offset_bottom = 24.5
+focus_mode = 0
+theme_override_fonts/font = SubResource("2")
+text = "?"
+
+[node name="Text" type="Label" parent="ScrollList/HContainer/Level5Container/5"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_top = -11.0
+offset_right = 22.0
+offset_bottom = 11.0
+theme_override_fonts/font = SubResource("1")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Level6Container" type="Control" parent="ScrollList/HContainer"]
+custom_minimum_size = Vector2(90, 300)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="6" type="Button" parent="ScrollList/HContainer/Level6Container" groups=["Button"]]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -24.5
+offset_right = 25.0
+offset_bottom = 24.5
+focus_mode = 0
+theme_override_fonts/font = SubResource("2")
+text = "?"
+
+[node name="Text" type="Label" parent="ScrollList/HContainer/Level6Container/6"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_top = -11.0
+offset_right = 22.0
+offset_bottom = 11.0
+theme_override_fonts/font = SubResource("1")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Level7Container" type="Control" parent="ScrollList/HContainer"]
+custom_minimum_size = Vector2(90, 300)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="7" type="Button" parent="ScrollList/HContainer/Level7Container" groups=["Button"]]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -24.5
+offset_right = 25.0
+offset_bottom = 24.5
+focus_mode = 0
+theme_override_fonts/font = SubResource("2")
+text = "?"
+
+[node name="Text" type="Label" parent="ScrollList/HContainer/Level7Container/7"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_top = -11.0
+offset_right = 22.0
+offset_bottom = 11.0
+theme_override_fonts/font = SubResource("1")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Level8Container" type="Control" parent="ScrollList/HContainer"]
+custom_minimum_size = Vector2(90, 300)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="8" type="Button" parent="ScrollList/HContainer/Level8Container" groups=["Button"]]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -24.5
+offset_right = 25.0
+offset_bottom = 24.5
+focus_mode = 0
+theme_override_fonts/font = SubResource("2")
+text = "?"
+
+[node name="Text" type="Label" parent="ScrollList/HContainer/Level8Container/8"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_top = -11.0
+offset_right = 22.0
+offset_bottom = 11.0
+theme_override_fonts/font = SubResource("1")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Level9Container" type="Control" parent="ScrollList/HContainer"]
+custom_minimum_size = Vector2(90, 300)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="9" type="Button" parent="ScrollList/HContainer/Level9Container" groups=["Button"]]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -24.5
+offset_right = 25.0
+offset_bottom = 24.5
+focus_mode = 0
+theme_override_fonts/font = SubResource("2")
+text = "?"
+
+[node name="Text" type="Label" parent="ScrollList/HContainer/Level9Container/9"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_top = -11.0
+offset_right = 22.0
+offset_bottom = 11.0
+theme_override_fonts/font = SubResource("1")
+horizontal_alignment = 2
+vertical_alignment = 1

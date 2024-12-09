@@ -1,0 +1,329 @@
+[gd_scene load_steps=32 format=3 uid="uid://ntq8pdmormpl"]
+
+[ext_resource type="Script" path="res://scripts/main_menu/main_menu.gd" id="1_7b44b"]
+[ext_resource type="Texture2D" uid="uid://c0ca60mj2bbpr" path="res://sprites/outer_space/backgrounds/background_4.png" id="2_rv48k"]
+[ext_resource type="Texture2D" uid="uid://c733tbacu7lo7" path="res://sprites/menu/title.png" id="3_pe3lq"]
+[ext_resource type="PackedScene" uid="uid://e74ldrlgmmv8" path="res://scenes/transictions/fade_transiction.tscn" id="4_lj5cx"]
+[ext_resource type="Texture2D" uid="uid://idm6f8dt88qn" path="res://sprites/menu/buttons/novo_jogo.png" id="5_a4k22"]
+[ext_resource type="Texture2D" uid="uid://brkvrtcrcnhdv" path="res://sprites/outer_space/planets/earth_planet.png" id="5_lidyp"]
+[ext_resource type="Texture2D" uid="uid://bv87ukphhqhtj" path="res://sprites/menu/buttons/seletor_de_fases.png" id="6_74x85"]
+[ext_resource type="Texture2D" uid="uid://0a6x6yd6jdun" path="res://sprites/menu/buttons/novo_jogo_hover.png" id="6_p7vb2"]
+[ext_resource type="Texture2D" uid="uid://c5fqmjgy07npm" path="res://sprites/outer_space/planets/lava_planet.png" id="6_t35ri"]
+[ext_resource type="Texture2D" uid="uid://cxqbmrtw15jrr" path="res://sprites/outer_space/asteroids/comet/comet_0.png" id="7_my2mt"]
+[ext_resource type="Texture2D" uid="uid://dkwwo6xgxw0ce" path="res://sprites/menu/buttons/sair.png" id="7_wrf86"]
+[ext_resource type="Texture2D" uid="uid://s3hmdiybx3xk" path="res://sprites/menu/buttons/sair_hover.png" id="8_7mifp"]
+[ext_resource type="Texture2D" uid="uid://beq8ww0xdlqsb" path="res://sprites/outer_space/asteroids/comet/comet_1.png" id="8_ay67a"]
+[ext_resource type="Texture2D" uid="uid://bup8wsfndqwuy" path="res://sprites/menu/buttons/seletor_de_fases_hover.png" id="8_rpj18"]
+[ext_resource type="Texture2D" uid="uid://crf0i37fdrxy" path="res://sprites/outer_space/asteroids/comet/comet_2.png" id="9_6yp30"]
+[ext_resource type="Texture2D" uid="uid://dv3ut03o87n67" path="res://sprites/outer_space/asteroids/comet/comet_3.png" id="10_t5qmq"]
+[ext_resource type="AudioStream" uid="uid://b3ox4o77avi6h" path="res://sounds/effects/button_hover.mp3" id="12_gmkvl"]
+[ext_resource type="AudioStream" uid="uid://badfjvsqb46u0" path="res://sounds/musics/music.mp3" id="12_iq3qq"]
+[ext_resource type="Texture2D" uid="uid://ckhfark3rmmtl" path="res://sprites/menu/logo.png" id="19_pkab2"]
+
+[sub_resource type="Animation" id="Animation_uo73x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dlake"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, -2), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u7dkb"]
+_data = {
+"RESET": SubResource("Animation_uo73x"),
+"idle": SubResource("Animation_dlake")
+}
+
+[sub_resource type="Animation" id="Animation_vv3op"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_djhl1"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.48, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2, 2), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tsfs2"]
+_data = {
+"RESET": SubResource("Animation_vv3op"),
+"idle": SubResource("Animation_djhl1")
+}
+
+[sub_resource type="Animation" id="Animation_vyi8k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_my2mt")]
+}
+
+[sub_resource type="Animation" id="Animation_tb51r"]
+resource_name = "moving"
+length = 7.50002
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.242427, 0.489627, 0.752001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_my2mt"), ExtResource("8_ay67a"), ExtResource("9_6yp30"), ExtResource("10_t5qmq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2000, 2000), Vector2(-2000, 2000)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_701yd"]
+_data = {
+"RESET": SubResource("Animation_vyi8k"),
+"moving": SubResource("Animation_tb51r")
+}
+
+[sub_resource type="Animation" id="Animation_ho0i8"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 0), Vector2(0, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_iyp21"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xvhi4"]
+_data = {
+"RESET": SubResource("Animation_iyp21"),
+"idle": SubResource("Animation_ho0i8")
+}
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7b44b")
+
+[node name="spr_background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(640, 360)
+scale = Vector2(2, 2)
+texture = ExtResource("2_rv48k")
+
+[node name="spr_earth_planet" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(191, 537)
+scale = Vector2(2.946, 3)
+texture = ExtResource("5_lidyp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="spr_earth_planet"]
+libraries = {
+"": SubResource("AnimationLibrary_u7dkb")
+}
+
+[node name="spr_lava_planet" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1000, 447)
+scale = Vector2(3, 3)
+texture = ExtResource("6_t35ri")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="spr_lava_planet"]
+libraries = {
+"": SubResource("AnimationLibrary_tsfs2")
+}
+speed_scale = 2.0
+
+[node name="spr_shooting_star" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(451, -71)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_my2mt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="spr_shooting_star"]
+libraries = {
+"": SubResource("AnimationLibrary_701yd")
+}
+speed_scale = 1.5
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="CenterContainer" type="CenterContainer" parent="GUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Logo" type="Sprite2D" parent="GUI/CenterContainer"]
+position = Vector2(636, 99)
+scale = Vector2(5, 5)
+texture = ExtResource("19_pkab2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GUI/CenterContainer/Logo"]
+libraries = {
+"": SubResource("AnimationLibrary_xvhi4")
+}
+speed_scale = 0.5
+
+[node name="spr_title" type="Sprite2D" parent="GUI/CenterContainer"]
+visible = false
+texture_filter = 1
+position = Vector2(628, 120)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_pe3lq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GUI/CenterContainer/spr_title"]
+libraries = {
+"": SubResource("AnimationLibrary_xvhi4")
+}
+speed_scale = 0.5
+
+[node name="VContainer" type="VBoxContainer" parent="GUI"]
+layout_mode = 2
+offset_left = 328.0
+offset_top = 245.5
+offset_right = 952.0
+offset_bottom = 474.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="NewGame" type="TextureButton" parent="GUI/VContainer"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("5_a4k22")
+texture_hover = ExtResource("6_p7vb2")
+
+[node name="LevelSelector" type="TextureButton" parent="GUI/VContainer"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("6_74x85")
+texture_hover = ExtResource("8_rpj18")
+
+[node name="Quit" type="TextureButton" parent="GUI/VContainer"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("7_wrf86")
+texture_hover = ExtResource("8_7mifp")
+
+[node name="Fade Transiction" parent="." instance=ExtResource("4_lj5cx")]
+visible = false
+layout_mode = 0
+
+[node name="fade_timer" type="Timer" parent="Fade Transiction"]
+
+[node name="button_hover_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_gmkvl")
+volume_db = -10.0
+
+[node name="music_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_iq3qq")
+volume_db = -20.0
+
+[connection signal="mouse_entered" from="GUI/VContainer/NewGame" to="." method="_on_new_game_mouse_entered"]
+[connection signal="mouse_entered" from="GUI/VContainer/LevelSelector" to="." method="_on_level_selector_mouse_entered"]
+[connection signal="mouse_entered" from="GUI/VContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="timeout" from="Fade Transiction/fade_timer" to="." method="_on_fade_timer_timeout"]

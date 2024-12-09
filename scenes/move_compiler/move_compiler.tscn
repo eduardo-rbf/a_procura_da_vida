@@ -1,0 +1,272 @@
+[gd_scene load_steps=10 format=3 uid="uid://c00jj3pul7dns"]
+
+[ext_resource type="Script" path="res://scripts/move_compiler/controller.gd" id="1_dl18m"]
+[ext_resource type="Script" path="res://scripts/move_compiler/slot.gd" id="1_n6du6"]
+[ext_resource type="Texture2D" uid="uid://cnt742ok817lu" path="res://sprites/move_compiler/right_btn.png" id="1_n7ts7"]
+[ext_resource type="Script" path="res://scripts/move_compiler/control.gd" id="2_67n2i"]
+[ext_resource type="Texture2D" uid="uid://bkr4h1gbapqgr" path="res://sprites/move_compiler/left_btn.png" id="3_00qgr"]
+[ext_resource type="Texture2D" uid="uid://d2e18mro3u7xh" path="res://sprites/move_compiler/down_btn.png" id="5_838qk"]
+[ext_resource type="Texture2D" uid="uid://cklh1x4q7ty4r" path="res://sprites/move_compiler/up_btn.png" id="5_pgf24"]
+[ext_resource type="Texture2D" uid="uid://p1uw5c6028p" path="res://sprites/move_compiler/start_btn.png" id="8_fgp6o"]
+[ext_resource type="Script" path="res://scripts/move_compiler/start_btn.gd" id="9_ff74b"]
+
+[node name="MoveCompiler" type="Control"]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_dl18m")
+
+[node name="controls" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -300.0
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="left" type="TextureRect" parent="controls"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("3_00qgr")
+expand_mode = 1
+script = ExtResource("2_67n2i")
+
+[node name="Panel" type="Panel" parent="controls/left"]
+show_behind_parent = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="right" type="TextureRect" parent="controls"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_n7ts7")
+expand_mode = 1
+script = ExtResource("2_67n2i")
+control_type = "right"
+
+[node name="Panel" type="Panel" parent="controls/right"]
+show_behind_parent = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="up" type="TextureRect" parent="controls"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("5_pgf24")
+expand_mode = 1
+script = ExtResource("2_67n2i")
+control_type = "up"
+
+[node name="Panel" type="Panel" parent="controls/up"]
+show_behind_parent = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="down" type="TextureRect" parent="controls"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("5_838qk")
+expand_mode = 1
+script = ExtResource("2_67n2i")
+control_type = "down"
+
+[node name="Panel" type="Panel" parent="controls/down"]
+show_behind_parent = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="slots" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_bottom = 100.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 3
+
+[node name="slot_1" type="TextureRect" parent="slots"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 1
+script = ExtResource("1_n6du6")
+
+[node name="Panel" type="Panel" parent="slots/slot_1"]
+show_behind_parent = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="slot_2" type="TextureRect" parent="slots"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 1
+script = ExtResource("1_n6du6")
+col = 1
+
+[node name="Panel" type="Panel" parent="slots/slot_2"]
+show_behind_parent = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="slot_3" type="TextureRect" parent="slots"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 1
+script = ExtResource("1_n6du6")
+col = 2
+
+[node name="Panel" type="Panel" parent="slots/slot_3"]
+show_behind_parent = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="slot_4" type="TextureRect" parent="slots"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 1
+script = ExtResource("1_n6du6")
+row = 1
+
+[node name="Panel" type="Panel" parent="slots/slot_4"]
+show_behind_parent = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="slot_5" type="TextureRect" parent="slots"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 1
+script = ExtResource("1_n6du6")
+row = 1
+col = 1
+
+[node name="Panel" type="Panel" parent="slots/slot_5"]
+show_behind_parent = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="slot_6" type="TextureRect" parent="slots"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 1
+script = ExtResource("1_n6du6")
+row = 1
+col = 2
+
+[node name="Panel" type="Panel" parent="slots/slot_6"]
+show_behind_parent = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="slot_7" type="TextureRect" parent="slots"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 1
+script = ExtResource("1_n6du6")
+row = 2
+
+[node name="Panel" type="Panel" parent="slots/slot_7"]
+show_behind_parent = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="slot_8" type="TextureRect" parent="slots"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 1
+script = ExtResource("1_n6du6")
+row = 2
+col = 1
+
+[node name="Panel" type="Panel" parent="slots/slot_8"]
+show_behind_parent = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="slot_9" type="TextureRect" parent="slots"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 1
+script = ExtResource("1_n6du6")
+row = 2
+col = 2
+
+[node name="Panel" type="Panel" parent="slots/slot_9"]
+show_behind_parent = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="buttons" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = 150.0
+offset_bottom = 282.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="start_btn" type="TextureButton" parent="buttons"]
+layout_mode = 2
+texture_normal = ExtResource("8_fgp6o")
+script = ExtResource("9_ff74b")
+
+[connection signal="pressed" from="buttons/start_btn" to="." method="_on_start_btn_pressed"]

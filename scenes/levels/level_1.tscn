@@ -1,0 +1,190 @@
+[gd_scene load_steps=71 format=3 uid="uid://bxjodrks3pe56"]
+
+[ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_6s1j8"]
+[ext_resource type="PackedScene" uid="uid://e74ldrlgmmv8" path="res://scenes/transictions/fade_transiction.tscn" id="2_h0c3q"]
+[ext_resource type="PackedScene" uid="uid://c00jj3pul7dns" path="res://scenes/move_compiler/move_compiler.tscn" id="3_xinlt"]
+[ext_resource type="Texture2D" uid="uid://c411frvy6lwbr" path="res://sprites/player/walk/crusader_walk_10000.png" id="4_ot2wy"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="5_icu5v"]
+[ext_resource type="Texture2D" uid="uid://cikrd63i28664" path="res://sprites/player/walk/crusader_walk_10001.png" id="6_8rhab"]
+[ext_resource type="Texture2D" uid="uid://d2gism0tvpn0m" path="res://sprites/player/walk/crusader_walk_10002.png" id="7_ya3fo"]
+[ext_resource type="Texture2D" uid="uid://ddftc07u47ox6" path="res://sprites/player/walk/crusader_walk_10003.png" id="8_fx4pa"]
+[ext_resource type="Texture2D" uid="uid://d0kkktbhifkiy" path="res://sprites/player/walk/crusader_walk_10004.png" id="9_m6cfa"]
+[ext_resource type="Texture2D" uid="uid://c1cgo6car4r4d" path="res://sprites/player/walk/crusader_walk_10005.png" id="10_y215r"]
+[ext_resource type="Texture2D" uid="uid://buh6lo3rhtp7b" path="res://sprites/player/walk/crusader_walk_10006.png" id="11_f45o0"]
+[ext_resource type="Texture2D" uid="uid://dad766fw7srou" path="res://sprites/player/walk/crusader_walk_10007.png" id="12_u74pd"]
+[ext_resource type="Texture2D" uid="uid://clj4hl3nffne2" path="res://sprites/player/walk/crusader_walk_10008.png" id="13_p3qkv"]
+[ext_resource type="Texture2D" uid="uid://bsnxvoyv3rjxo" path="res://sprites/player/walk/crusader_walk_10009.png" id="14_30yro"]
+[ext_resource type="Texture2D" uid="uid://bt476ml6jntr5" path="res://sprites/player/walk/crusader_walk_10010.png" id="15_rmpne"]
+[ext_resource type="Texture2D" uid="uid://ch8s36pjy77gn" path="res://sprites/player/walk/crusader_walk_10011.png" id="16_id7dn"]
+[ext_resource type="Texture2D" uid="uid://bu285juug85cl" path="res://sprites/player/walk/crusader_walk_10012.png" id="17_c4kea"]
+[ext_resource type="Texture2D" uid="uid://b77i7g6uwrigx" path="res://sprites/player/walk/crusader_walk_10013.png" id="18_0y6xb"]
+[ext_resource type="Texture2D" uid="uid://by63ippkygprq" path="res://sprites/player/walk/crusader_walk_10014.png" id="19_qnt0g"]
+[ext_resource type="Texture2D" uid="uid://cmpx0nb1b6244" path="res://sprites/player/walk/crusader_walk_50000.png" id="20_c5si8"]
+[ext_resource type="Texture2D" uid="uid://3f5ewal6s8w4" path="res://sprites/player/walk/crusader_walk_50001.png" id="21_200wn"]
+[ext_resource type="Texture2D" uid="uid://c4ecvwk5v6xwj" path="res://sprites/player/walk/crusader_walk_50002.png" id="22_feeel"]
+[ext_resource type="Texture2D" uid="uid://dfscuflepbya3" path="res://sprites/player/walk/crusader_walk_50003.png" id="23_gembp"]
+[ext_resource type="Texture2D" uid="uid://nusvswffhjyu" path="res://sprites/player/walk/crusader_walk_50004.png" id="24_rvcuw"]
+[ext_resource type="Texture2D" uid="uid://jyn6rjwvm2y" path="res://sprites/player/walk/crusader_walk_50005.png" id="25_4efrg"]
+[ext_resource type="Texture2D" uid="uid://wh58a8idv5r8" path="res://sprites/player/walk/crusader_walk_50006.png" id="26_pinw2"]
+[ext_resource type="Texture2D" uid="uid://dcet7n15wdt0v" path="res://sprites/player/walk/crusader_walk_50007.png" id="27_q4snp"]
+[ext_resource type="Texture2D" uid="uid://cqu00qfqktvhb" path="res://sprites/player/walk/crusader_walk_50008.png" id="28_0sfb6"]
+[ext_resource type="Texture2D" uid="uid://cae6wpmi3hfg6" path="res://sprites/player/walk/crusader_walk_50009.png" id="29_wrggq"]
+[ext_resource type="Texture2D" uid="uid://bj37mcwgkurfn" path="res://sprites/player/walk/crusader_walk_50010.png" id="30_t41wp"]
+[ext_resource type="Texture2D" uid="uid://be2yqcbx201q2" path="res://sprites/player/walk/crusader_walk_50011.png" id="31_lmhaj"]
+[ext_resource type="Texture2D" uid="uid://crdr66ncc26ii" path="res://sprites/player/walk/crusader_walk_50012.png" id="32_3tmit"]
+[ext_resource type="Texture2D" uid="uid://bmx1xmfofk6kn" path="res://sprites/player/walk/crusader_walk_50013.png" id="33_xq8qb"]
+[ext_resource type="Texture2D" uid="uid://djt401v73mpdd" path="res://sprites/player/walk/crusader_walk_50014.png" id="34_65bsp"]
+[ext_resource type="Texture2D" uid="uid://dahby5qwgxs4x" path="res://sprites/player/walk/crusader_walk_30000.png" id="35_e6a85"]
+[ext_resource type="Texture2D" uid="uid://bfgpduxrep7no" path="res://sprites/player/walk/crusader_walk_30001.png" id="36_y15jx"]
+[ext_resource type="Texture2D" uid="uid://j3rwk1voowxb" path="res://sprites/player/walk/crusader_walk_30002.png" id="37_ikkxi"]
+[ext_resource type="Texture2D" uid="uid://c5e3l4j3cbuqo" path="res://sprites/player/walk/crusader_walk_30003.png" id="38_xp88c"]
+[ext_resource type="Texture2D" uid="uid://bchbsph47xtic" path="res://sprites/player/walk/crusader_walk_30004.png" id="39_260d7"]
+[ext_resource type="Texture2D" uid="uid://dyio6yqryc2es" path="res://sprites/player/walk/crusader_walk_30005.png" id="40_iqot1"]
+[ext_resource type="Texture2D" uid="uid://30074r161rog" path="res://sprites/player/walk/crusader_walk_30006.png" id="41_ynjny"]
+[ext_resource type="Texture2D" uid="uid://463q0ejntsu8" path="res://sprites/player/walk/crusader_walk_30007.png" id="42_ft64l"]
+[ext_resource type="Texture2D" uid="uid://cxhn0srpsnofo" path="res://sprites/player/walk/crusader_walk_30008.png" id="43_e6p5n"]
+[ext_resource type="Texture2D" uid="uid://d2c1d6dwlfchn" path="res://sprites/player/walk/crusader_walk_30009.png" id="44_8w53n"]
+[ext_resource type="Texture2D" uid="uid://dhnt4ew1f1btr" path="res://sprites/player/walk/crusader_walk_30010.png" id="45_s463r"]
+[ext_resource type="Texture2D" uid="uid://c4hdhtaxpirdv" path="res://sprites/player/walk/crusader_walk_30011.png" id="46_eiyky"]
+[ext_resource type="Texture2D" uid="uid://dn4105kmshhbp" path="res://sprites/player/walk/crusader_walk_30012.png" id="47_tluur"]
+[ext_resource type="Texture2D" uid="uid://dunwmrlxp8j08" path="res://sprites/player/walk/crusader_walk_30013.png" id="48_028jj"]
+[ext_resource type="Texture2D" uid="uid://d0u4xh8dlkg6v" path="res://sprites/player/walk/crusader_walk_30014.png" id="49_ro5gk"]
+[ext_resource type="Texture2D" uid="uid://vayo5j0v2hsg" path="res://sprites/player/walk/crusader_walk_70000.png" id="50_sbciy"]
+[ext_resource type="Texture2D" uid="uid://c2dkqy8rkv4th" path="res://sprites/player/walk/crusader_walk_70001.png" id="51_dlm6x"]
+[ext_resource type="Texture2D" uid="uid://bvkmwd2pncfgb" path="res://sprites/player/walk/crusader_walk_70002.png" id="52_hhl8r"]
+[ext_resource type="Texture2D" uid="uid://dwfij6inkgrdo" path="res://sprites/player/walk/crusader_walk_70003.png" id="53_500hh"]
+[ext_resource type="Texture2D" uid="uid://cohtxp40ejtpv" path="res://sprites/player/walk/crusader_walk_70004.png" id="54_odn82"]
+[ext_resource type="Texture2D" uid="uid://cgdsqi43dy088" path="res://sprites/player/walk/crusader_walk_70005.png" id="55_brsgb"]
+[ext_resource type="Texture2D" uid="uid://dlgwxfm0a0csb" path="res://sprites/player/walk/crusader_walk_70006.png" id="56_wyu4w"]
+[ext_resource type="Texture2D" uid="uid://cnh3qcbyuv2nl" path="res://sprites/player/walk/crusader_walk_70007.png" id="57_ieen3"]
+[ext_resource type="Texture2D" uid="uid://x66e2go2xfxr" path="res://sprites/player/walk/crusader_walk_70008.png" id="58_p8nd2"]
+[ext_resource type="Texture2D" uid="uid://bf67yrxnkuy08" path="res://sprites/player/walk/crusader_walk_70009.png" id="59_nlwk6"]
+[ext_resource type="Texture2D" uid="uid://1ofkwkf556rq" path="res://sprites/player/walk/crusader_walk_70010.png" id="60_itadi"]
+[ext_resource type="Texture2D" uid="uid://cvu0olhevi3jm" path="res://sprites/player/walk/crusader_walk_70011.png" id="61_74px5"]
+[ext_resource type="Texture2D" uid="uid://bn8fixdvbuiy6" path="res://sprites/player/walk/crusader_walk_70012.png" id="62_hv2oa"]
+[ext_resource type="Texture2D" uid="uid://dyumdfvnbhkt2" path="res://sprites/player/walk/crusader_walk_70013.png" id="63_id136"]
+[ext_resource type="Texture2D" uid="uid://cioqnjwrj0p3e" path="res://sprites/player/walk/crusader_walk_70014.png" id="64_4umg6"]
+
+[sub_resource type="Animation" id="Animation_t4nqc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_ot2wy")]
+}
+
+[sub_resource type="Animation" id="Animation_kc3db"]
+resource_name = "walk_down"
+length = 0.500003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("20_c5si8"), ExtResource("21_200wn"), ExtResource("22_feeel"), ExtResource("23_gembp"), ExtResource("24_rvcuw"), ExtResource("25_4efrg"), ExtResource("26_pinw2"), ExtResource("27_q4snp"), ExtResource("28_0sfb6"), ExtResource("29_wrggq"), ExtResource("30_t41wp"), ExtResource("31_lmhaj"), ExtResource("32_3tmit"), ExtResource("33_xq8qb"), ExtResource("34_65bsp")]
+}
+
+[sub_resource type="Animation" id="Animation_e7clj"]
+resource_name = "walk_left"
+length = 0.500003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("50_sbciy"), ExtResource("51_dlm6x"), ExtResource("52_hhl8r"), ExtResource("53_500hh"), ExtResource("54_odn82"), ExtResource("55_brsgb"), ExtResource("56_wyu4w"), ExtResource("57_ieen3"), ExtResource("58_p8nd2"), ExtResource("59_nlwk6"), ExtResource("60_itadi"), ExtResource("61_74px5"), ExtResource("62_hv2oa"), ExtResource("63_id136"), ExtResource("64_4umg6")]
+}
+
+[sub_resource type="Animation" id="Animation_p10ny"]
+resource_name = "walk_right"
+length = 0.500003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("35_e6a85"), ExtResource("36_y15jx"), ExtResource("37_ikkxi"), ExtResource("38_xp88c"), ExtResource("39_260d7"), ExtResource("40_iqot1"), ExtResource("41_ynjny"), ExtResource("42_ft64l"), ExtResource("43_e6p5n"), ExtResource("44_8w53n"), ExtResource("45_s463r"), ExtResource("46_eiyky"), ExtResource("47_tluur"), ExtResource("48_028jj"), ExtResource("49_ro5gk")]
+}
+
+[sub_resource type="Animation" id="Animation_n4pmr"]
+resource_name = "walk_up"
+length = 0.500003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_ot2wy"), ExtResource("6_8rhab"), ExtResource("7_ya3fo"), ExtResource("8_fx4pa"), ExtResource("9_m6cfa"), ExtResource("10_y215r"), ExtResource("11_f45o0"), ExtResource("12_u74pd"), ExtResource("13_p3qkv"), ExtResource("14_30yro"), ExtResource("15_rmpne"), ExtResource("16_id7dn"), ExtResource("17_c4kea"), ExtResource("18_0y6xb"), ExtResource("19_qnt0g")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_16f5t"]
+_data = {
+"RESET": SubResource("Animation_t4nqc"),
+"walk_down": SubResource("Animation_kc3db"),
+"walk_left": SubResource("Animation_e7clj"),
+"walk_right": SubResource("Animation_p10ny"),
+"walk_up": SubResource("Animation_n4pmr")
+}
+
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("_hud")]
+script = ExtResource("1_6s1j8")
+_hud = NodePath("HUD")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Fade Transiction" parent="." instance=ExtResource("2_h0c3q")]
+visible = false
+
+[node name="MoveCompiler" parent="." instance=ExtResource("3_xinlt")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 667.0
+offset_top = 328.0
+offset_right = 667.0
+offset_bottom = 328.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 6
+
+[node name="player" type="Sprite2D" parent="."]
+position = Vector2(259, 318)
+texture = ExtResource("4_ot2wy")
+script = ExtResource("5_icu5v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="player"]
+libraries = {
+"": SubResource("AnimationLibrary_16f5t")
+}
+speed_scale = 0.75
+
+[connection signal="grid_emitted" from="MoveCompiler" to="player" method="_on_move_compiler_grid_emitted"]
