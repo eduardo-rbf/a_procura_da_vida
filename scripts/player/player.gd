@@ -8,6 +8,9 @@ var rot = 0
 var animation_speed = 0.5
 var moving = false
 
+var initial_position: Vector2
+var initial_rotation: int
+
 #input advance, turn_left, turn right
 #isometric vectors either sqrt(3)/2:1/2 or 1:1/2 if dimetric
 var direction_map = [
@@ -25,9 +28,17 @@ var direction_map = [
 
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
-	position += Vector2.ONE * tile_size/2
+	position += Vector2.ONE * tile_size / 2
 	position += direction_map[0]["movement"] * tile_size
+	
+	initial_position = position
+	initial_rotation = rot
 	pass
+
+func reset_position():
+	position = initial_position
+	rot = initial_rotation
+	animation_player.play(direction_map[rot]["rotation"])
 
 func move(dir):
 	match dir:
@@ -43,10 +54,10 @@ func move(dir):
 			else:
 				return "fail"
 		"ui_left":
-			rot = wrap(rot + 1, 0, 4)
+			rot = wrap(rot - 1, 0, 4)
 			animation_player.play(direction_map[rot]["rotation"])
 		"ui_right":
-			rot = wrap(rot - 1, 0, 4)
+			rot = wrap(rot + 1, 0, 4)
 			animation_player.play(direction_map[rot]["rotation"])
 		"jump":#test, movement arc, layer work(z)
 			return "fail" #TODO

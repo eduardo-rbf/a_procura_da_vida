@@ -5,6 +5,9 @@ class_name LevelSelector
 @onready var h_container: HBoxContainer = get_node("ScrollList/HContainer")
 
 func _ready() -> void:
+	# Música
+	$music_player.play(0)
+	
 	initial_configuration()
 	for button in get_tree().get_nodes_in_group("Button"):
 		button.connect("pressed", Callable(self, "on_button_pressed").bind(button.name))

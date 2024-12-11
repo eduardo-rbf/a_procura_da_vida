@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvfgtrpxkoikb"]
+[gd_scene load_steps=9 format=3 uid="uid://cvfgtrpxkoikb"]
 
 [ext_resource type="FontFile" path="res://resources/roboto_dynamic_font.tres" id="1"]
 [ext_resource type="FontFile" uid="uid://foc3m18h6wix" path="res://fonts/roboto_slab.ttf" id="2"]
 [ext_resource type="Script" path="res://scripts/level_selector/level_selector.gd" id="3"]
+[ext_resource type="AudioStream" uid="uid://badfjvsqb46u0" path="res://sounds/musics/music.mp3" id="4_14fuv"]
 
 [sub_resource type="FontFile" id="1"]
 fallbacks = Array[Font]([ExtResource("2")])
@@ -377,3 +378,7 @@ offset_bottom = 11.0
 theme_override_fonts/font = SubResource("1")
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="music_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_14fuv")
+volume_db = -20.0
