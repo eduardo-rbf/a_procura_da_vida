@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnblh56ejabjo"]
+
+[ext_resource type="Script" path="res://scripts/commands/command_element.gd" id="1_o2osb"]
+
+[node name="CommandElement" type="Control"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_right = 65.0
+offset_bottom = 64.0
+script = ExtResource("1_o2osb")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+expand_mode = 1

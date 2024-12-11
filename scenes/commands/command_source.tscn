@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://6x1yknso1do3"]
+
+[ext_resource type="Script" path="res://scripts/commands/command_source.gd" id="1_elcsg"]
+
+[node name="CommandElement" type="Control"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_elcsg")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+expand_mode = 1

@@ -1,0 +1,127 @@
+[gd_scene load_steps=11 format=3 uid="uid://dvy6pm68lwngk"]
+
+[ext_resource type="Script" path="res://scripts/commands/commands.gd" id="1_vm4o2"]
+[ext_resource type="Texture2D" uid="uid://b1bo8dfn27cms" path="res://sprites/commands/Tatice-Just-Bins-Bin-black-full.64.png" id="2_eswxj"]
+[ext_resource type="Texture2D" uid="uid://p1uw5c6028p" path="res://sprites/commands/start_btn.png" id="3_o8mih"]
+[ext_resource type="Script" path="res://scripts/commands/command_grid.gd" id="4_i3fk7"]
+[ext_resource type="PackedScene" uid="uid://6x1yknso1do3" path="res://scenes/commands/command_source.tscn" id="5_24n3q"]
+[ext_resource type="Texture2D" uid="uid://cklh1x4q7ty4r" path="res://sprites/commands/up_btn.png" id="6_vrcta"]
+[ext_resource type="Texture2D" uid="uid://cnt742ok817lu" path="res://sprites/commands/right_btn.png" id="7_v3xrh"]
+[ext_resource type="Texture2D" uid="uid://bkr4h1gbapqgr" path="res://sprites/commands/left_btn.png" id="8_1w8w2"]
+[ext_resource type="Texture2D" uid="uid://b8ey0wvs6vxj1" path="res://sprites/commands/Actions-go-jump-icon.png" id="9_1ydbe"]
+[ext_resource type="Texture2D" uid="uid://d0c0j55u7nmpc" path="res://sprites/commands/Signal-icon.png" id="10_5pl20"]
+
+[node name="Commands" type="Control"]
+custom_minimum_size = Vector2(384, 384)
+layout_mode = 3
+anchor_right = 0.3
+anchor_bottom = 0.533
+offset_bottom = 0.23996
+script = ExtResource("1_vm4o2")
+
+[node name="Buttons" type="Control" parent="."]
+custom_minimum_size = Vector2(384, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_top = 320.0
+offset_right = 384.0
+offset_bottom = 384.0
+
+[node name="Reset" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.167
+anchor_bottom = 1.0
+offset_right = -0.128006
+icon = ExtResource("2_eswxj")
+flat = true
+expand_icon = true
+
+[node name="Trigger" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.833
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.127991
+grow_horizontal = 0
+icon = ExtResource("3_o8mih")
+flat = true
+expand_icon = true
+
+[node name="CommandGrid" type="Control" parent="."]
+custom_minimum_size = Vector2(384, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_top = 64.0
+offset_right = 384.0
+offset_bottom = 320.0
+script = ExtResource("4_i3fk7")
+
+[node name="CommandSources" type="Control" parent="."]
+z_index = 101
+custom_minimum_size = Vector2(384, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 384.0
+offset_bottom = 64.0
+
+[node name="WalkSource" parent="CommandSources" instance=ExtResource("5_24n3q")]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.167
+anchor_bottom = 1.0
+offset_right = -0.128006
+offset_bottom = 0.0
+texture = ExtResource("6_vrcta")
+
+[node name="CWRotSource" parent="CommandSources" instance=ExtResource("5_24n3q")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.208
+anchor_right = 0.375
+anchor_bottom = 1.0
+offset_left = 0.127998
+offset_right = -1.52588e-05
+offset_bottom = 0.0
+texture = ExtResource("7_v3xrh")
+
+[node name="CCWRotSource" parent="CommandSources" instance=ExtResource("5_24n3q")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.417
+anchor_right = 0.583
+anchor_bottom = 1.0
+offset_left = -0.128006
+offset_right = 0.127991
+offset_bottom = 0.0
+texture = ExtResource("8_1w8w2")
+
+[node name="JumpSource" parent="CommandSources" instance=ExtResource("5_24n3q")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.625
+anchor_right = 0.792
+anchor_bottom = 1.0
+offset_right = -0.128021
+offset_bottom = 0.0
+texture = ExtResource("9_1ydbe")
+
+[node name="ActSource" parent="CommandSources" instance=ExtResource("5_24n3q")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.833
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.127991
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_5pl20")
+
+[connection signal="pressed" from="Buttons/Reset" to="CommandGrid" method="_on_reset_pressed"]
+[connection signal="pressed" from="Buttons/Trigger" to="CommandGrid" method="_on_trigger_pressed"]
+[connection signal="cmd_sequence_ready" from="CommandGrid" to="." method="_on_command_grid_cmd_sequence_ready"]
