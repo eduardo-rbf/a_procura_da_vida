@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm8be4vjdf5gt"
-path="res://.godot/imported/grass_earth.png-4fb2d33324b98e055efebede21632827.ctex"
+uid="uid://bdfy0susjkbok"
+path="res://.godot/imported/redstone_lamp.png-7fe32f3ea228427f12d5cbfc23fef457.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/isometric/grass_earth.png"
-dest_files=["res://.godot/imported/grass_earth.png-4fb2d33324b98e055efebede21632827.ctex"]
+source_file="res://sprites/isometric/redstone_lamp.png"
+dest_files=["res://.godot/imported/redstone_lamp.png-7fe32f3ea228427f12d5cbfc23fef457.ctex"]
 
 [params]
 

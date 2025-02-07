@@ -29,10 +29,12 @@ func reset() -> void:
 
 func get_action() -> String:
 	if texture_node.texture:
-		match texture_node.texture.resource_path: #for now
-			"res://sprites/commands/up_btn.png": return "ui_up"
-			"res://sprites/commands/right_btn.png": return "ui_right"
-			"res://sprites/commands/left_btn.png": return "ui_left"
+		match texture_node.texture.resource_path:
+			"res://sprites/commands/up_btn.png": return "advance"
+			"res://sprites/commands/right_btn.png": return "turn_right"
+			"res://sprites/commands/left_btn.png": return "turn_left"
 			"res://sprites/commands/Actions-go-jump-icon.png": return "jump"
 			"res://sprites/commands/Signal-icon.png": return "activate"
+			"res://sprites/commands/f1.png": return "call_f1"
+			"res://sprites/commands/f2.png": return "call_f2"
 	return "null"

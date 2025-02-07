@@ -28,3 +28,7 @@ func _ready() -> void:
 	var _new_dialog: DialogScreen = _DIALOG_SCREEN.instantiate()
 	_new_dialog.data = _dialog_data
 	_hud.add_child(_new_dialog)
+
+func level_reset():
+	pass
+	
