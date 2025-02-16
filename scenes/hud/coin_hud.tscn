@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqibt6jjc6ks5"]
+
+[ext_resource type="Script" path="res://scripts/hud/coin_hud.gd" id="1_hy21t"]
+[ext_resource type="FontFile" uid="uid://foc3m18h6wix" path="res://fonts/roboto_slab.ttf" id="2_8ucse"]
+
+[node name="coin_hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_hy21t")
+
+[node name="container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="container"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="CoinLabel" type="Label" parent="container/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_8ucse")
+theme_override_font_sizes/font_size = 60
+text = "0"
