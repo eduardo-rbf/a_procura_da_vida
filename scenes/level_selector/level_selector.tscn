@@ -1,9 +1,155 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvfgtrpxkoikb"]
+[gd_scene load_steps=25 format=3 uid="uid://cvfgtrpxkoikb"]
 
 [ext_resource type="FontFile" path="res://resources/roboto_dynamic_font.tres" id="1"]
 [ext_resource type="FontFile" uid="uid://foc3m18h6wix" path="res://fonts/roboto_slab.ttf" id="2"]
+[ext_resource type="Texture2D" uid="uid://c0ca60mj2bbpr" path="res://sprites/outer_space/backgrounds/background_4.png" id="2_xhg81"]
 [ext_resource type="Script" path="res://scripts/level_selector/level_selector.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://brkvrtcrcnhdv" path="res://sprites/outer_space/planets/earth_planet.png" id="3_j6kb2"]
 [ext_resource type="AudioStream" uid="uid://badfjvsqb46u0" path="res://sounds/musics/music.mp3" id="4_14fuv"]
+[ext_resource type="Texture2D" uid="uid://c5fqmjgy07npm" path="res://sprites/outer_space/planets/lava_planet.png" id="4_s07td"]
+[ext_resource type="Texture2D" uid="uid://cxqbmrtw15jrr" path="res://sprites/outer_space/asteroids/comet/comet_0.png" id="5_1cf8g"]
+[ext_resource type="Texture2D" uid="uid://beq8ww0xdlqsb" path="res://sprites/outer_space/asteroids/comet/comet_1.png" id="6_4cxfk"]
+[ext_resource type="Texture2D" uid="uid://crf0i37fdrxy" path="res://sprites/outer_space/asteroids/comet/comet_2.png" id="7_217u5"]
+[ext_resource type="Texture2D" uid="uid://dv3ut03o87n67" path="res://sprites/outer_space/asteroids/comet/comet_3.png" id="8_4su8e"]
+
+[sub_resource type="Animation" id="Animation_uo73x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dlake"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, -2), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u7dkb"]
+_data = {
+"RESET": SubResource("Animation_uo73x"),
+"idle": SubResource("Animation_dlake")
+}
+
+[sub_resource type="Animation" id="Animation_vv3op"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_djhl1"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.48, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2, 2), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tsfs2"]
+_data = {
+"RESET": SubResource("Animation_vv3op"),
+"idle": SubResource("Animation_djhl1")
+}
+
+[sub_resource type="Animation" id="Animation_vyi8k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_1cf8g")]
+}
+
+[sub_resource type="Animation" id="Animation_tb51r"]
+resource_name = "moving"
+length = 7.50002
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.242427, 0.489627, 0.752001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_1cf8g"), ExtResource("6_4cxfk"), ExtResource("7_217u5"), ExtResource("8_4su8e")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2000, 2000), Vector2(-2000, 2000)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_701yd"]
+_data = {
+"RESET": SubResource("Animation_vyi8k"),
+"moving": SubResource("Animation_tb51r")
+}
 
 [sub_resource type="FontFile" id="1"]
 fallbacks = Array[Font]([ExtResource("2")])
@@ -34,6 +180,47 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3")
+
+[node name="spr_background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(640, 360)
+scale = Vector2(2, 2)
+texture = ExtResource("2_xhg81")
+
+[node name="spr_earth_planet" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(191, 537)
+scale = Vector2(2.946, 3)
+texture = ExtResource("3_j6kb2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="spr_earth_planet"]
+libraries = {
+"": SubResource("AnimationLibrary_u7dkb")
+}
+
+[node name="spr_lava_planet" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1000, 500)
+scale = Vector2(3, 3)
+texture = ExtResource("4_s07td")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="spr_lava_planet"]
+libraries = {
+"": SubResource("AnimationLibrary_tsfs2")
+}
+speed_scale = 2.0
+
+[node name="spr_shooting_star" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(451, -71)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_1cf8g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="spr_shooting_star"]
+libraries = {
+"": SubResource("AnimationLibrary_701yd")
+}
+speed_scale = 1.5
 
 [node name="HContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -109,8 +296,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -25.0
 offset_top = -24.5
-offset_right = 25.0
-offset_bottom = 24.5
+offset_right = 50.0
+offset_bottom = 50.5
 focus_mode = 0
 theme_override_fonts/font = SubResource("2")
 text = "1"
@@ -142,8 +329,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -25.0
 offset_top = -24.5
-offset_right = 25.0
-offset_bottom = 24.5
+offset_right = 50.0
+offset_bottom = 50.5
 focus_mode = 0
 theme_override_fonts/font = SubResource("2")
 text = "2"
@@ -175,8 +362,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -25.0
 offset_top = -24.5
-offset_right = 25.0
-offset_bottom = 24.5
+offset_right = 50.0
+offset_bottom = 50.5
 focus_mode = 0
 theme_override_fonts/font = SubResource("2")
 text = "3"
@@ -206,8 +393,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -25.0
 offset_top = -24.5
-offset_right = 25.0
-offset_bottom = 24.5
+offset_right = 50.0
+offset_bottom = 50.5
 focus_mode = 0
 theme_override_fonts/font = SubResource("2")
 text = "?"
@@ -237,8 +424,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -25.0
 offset_top = -24.5
-offset_right = 25.0
-offset_bottom = 24.5
+offset_right = 50.0
+offset_bottom = 50.5
 focus_mode = 0
 theme_override_fonts/font = SubResource("2")
 text = "?"
@@ -268,8 +455,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -25.0
 offset_top = -24.5
-offset_right = 25.0
-offset_bottom = 24.5
+offset_right = 50.0
+offset_bottom = 50.5
 focus_mode = 0
 theme_override_fonts/font = SubResource("2")
 text = "?"
@@ -299,8 +486,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -25.0
 offset_top = -24.5
-offset_right = 25.0
-offset_bottom = 24.5
+offset_right = 50.0
+offset_bottom = 50.5
 focus_mode = 0
 theme_override_fonts/font = SubResource("2")
 text = "?"
