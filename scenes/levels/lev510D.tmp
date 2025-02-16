@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxjodrks3pe56"]
+
+[ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_6s1j8"]
+[ext_resource type="PackedScene" uid="uid://e74ldrlgmmv8" path="res://scenes/transictions/fade_transiction.tscn" id="2_h0c3q"]
+[ext_resource type="PackedScene" uid="uid://ba588xkjf6cua" path="res://scenes/move_compiler/move_compiler.tscn" id="3_xinlt"]
+
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("_hud")]
+script = ExtResource("1_6s1j8")
+_hud = NodePath("HUD")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Fade Transiction" parent="." instance=ExtResource("2_h0c3q")]
+visible = false
+
+[node name="Move Compiler" parent="." instance=ExtResource("3_xinlt")]
