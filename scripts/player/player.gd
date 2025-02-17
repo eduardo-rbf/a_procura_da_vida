@@ -114,6 +114,9 @@ func _input(event: InputEvent) -> void:
 	pass
 
 func move(direction):
+	if moving:
+		return "busy"
+		
 	match direction:
 		"advance": 
 			await advance()
@@ -142,7 +145,8 @@ func advance():
 			position + direction_map[rot]["movement"] * tile_size / 2, animation_speed)
 		moving = true
 		animation_player.play(direction_map[rot]["walk"])
-		await tween.finished	
+		await tween.finished
+		await animation_player.animation_finished
 		moving = false
 		player_coord = target_coord
 	else:
@@ -154,13 +158,17 @@ func advance():
 		return "fail"
 	
 func turn(direction):
+	moving = true
 	match direction:
 		"turn_left":
 			rot = wrap(rot - 1, 0, 4)
-			animation_player.play(direction_map[rot]["rotation"])
+			animation_player.play(direction_map[rot]["rotation"], -1, 1.5)
 		"turn_right":
 			rot = wrap(rot + 1, 0, 4)
-			animation_player.play(direction_map[rot]["rotation"])
+			animation_player.play(direction_map[rot]["rotation"], -1, 1.5)
+			
+	await get_tree().create_timer(0.2).timeout
+	moving = false
 
 func jump():
 	var target_coord = player_coord + next_coord[rot]
@@ -188,7 +196,6 @@ func jump_forward():
 	player_coord += next_coord[rot]
 	await fall()
 
-############update logic
 func fall():#no floor below after jump
 	pass
 	#try to collide with floor below

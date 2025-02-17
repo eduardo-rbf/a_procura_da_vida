@@ -5,7 +5,6 @@ class_name LevelSelector
 @onready var h_container: HBoxContainer = get_node("ScrollList/HContainer")
 
 func _ready() -> void:
-	# Música
 	$music_player.play(0)
 	
 	initial_configuration()
@@ -25,16 +24,16 @@ func initial_configuration() -> void:
 			container_button.text = "?"
 			
 		if container_level_data[2] and container_level_data[3]:
-			container_label.text = "T T"
+			container_label.text = "⭐ ⭐"
 		elif container_level_data[2]:
-			container_label.text = "T F"
+			container_label.text = "⭐"
 		else:
-			container_label.text = "F F"
+			container_label.text = ""
 			
 			
 func on_button_pressed(button_name: String) -> void:
 	if button_name == "Menu":
-		var _change_level: bool = get_tree().change_scene_to_file("res://scenes/menu.tscn")
+		var _change_level: bool = get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
 		return
 		
 	var level_info: Array = Global.levels_data[int(button_name)]

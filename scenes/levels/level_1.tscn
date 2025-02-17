@@ -1,11 +1,14 @@
-[gd_scene load_steps=11 format=4 uid="uid://bxjodrks3pe56"]
+[gd_scene load_steps=14 format=4 uid="uid://bxjodrks3pe56"]
 
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_6s1j8"]
+[ext_resource type="PackedScene" uid="uid://dqibt6jjc6ks5" path="res://scenes/hud/coin_hud.tscn" id="2_esu8h"]
 [ext_resource type="PackedScene" uid="uid://e74ldrlgmmv8" path="res://scenes/transictions/fade_transiction.tscn" id="2_h0c3q"]
 [ext_resource type="Script" path="res://scripts/levels/map.gd" id="3_p1ino"]
+[ext_resource type="FontFile" uid="uid://fg48b4w15c1a" path="res://resources/roboto_dynamic_font.tres" id="3_xyc0r"]
 [ext_resource type="PackedScene" uid="uid://dvy6pm68lwngk" path="res://scenes/commands/commands.tscn" id="4_5dhyk"]
 [ext_resource type="Texture2D" uid="uid://dbekq51ar8201" path="res://sprites/map/tiles/tileset.png" id="4_572bf"]
 [ext_resource type="PackedScene" uid="uid://d1crxsikq8fog" path="res://scenes/player/player.tscn" id="4_jtcmv"]
+[ext_resource type="PackedScene" uid="uid://br1i6o4s2s6lj" path="res://scenes/Items/Coin.tscn" id="9_kxry8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ysxf1"]
 texture = ExtResource("4_572bf")
@@ -64,8 +67,6 @@ y_sort_enabled = true
 script = ExtResource("1_6s1j8")
 _hud = NodePath("HUD")
 
-[node name="HUD" type="CanvasLayer" parent="."]
-
 [node name="Fade Transiction" parent="." instance=ExtResource("2_h0c3q")]
 visible = false
 
@@ -108,3 +109,31 @@ offset_bottom = 488.0
 Player = NodePath("../Player")
 
 [node name="LevelScript" type="Node" parent="."]
+
+[node name="coins" type="Node2D" parent="."]
+top_level = true
+
+[node name="Coin" parent="coins" instance=ExtResource("9_kxry8")]
+position = Vector2(224, 224)
+
+[node name="Coin2" parent="coins" instance=ExtResource("9_kxry8")]
+position = Vector2(352, 296)
+
+[node name="Coin3" parent="coins" instance=ExtResource("9_kxry8")]
+position = Vector2(320, 184)
+
+[node name="Coin4" parent="coins" instance=ExtResource("9_kxry8")]
+position = Vector2(416, 128)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="coin_hud" parent="HUD" instance=ExtResource("2_esu8h")]
+
+[node name="fases_button" type="Button" parent="HUD" groups=["Button"]]
+offset_left = 23.0
+offset_top = 16.0
+offset_right = 75.0
+offset_bottom = 46.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_xyc0r")
+text = "Fases"

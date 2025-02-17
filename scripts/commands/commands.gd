@@ -1,5 +1,7 @@
 extends Node
 
+signal reset_level
+
 @export var Player: Node2D
 var test: int = 2
 
@@ -51,15 +53,16 @@ func exec(cmd_sequence: Array, source: Array):
 			if source.has("f1"):
 				print("[at:commands.gd::exec()]", "Recursion found, halting.")
 				return
-			exec(commands["f1"], source + ["f1"])
+			await exec(commands["f1"], source + ["f1"])
 		elif cmd.contains("f2"):
 			if source.has("f2"):
 				print("[at:commands.gd::exec()]", "Recursion found, halting.")
 				return
-			exec(commands["f2"], source + ["f2"])
+			await exec(commands["f2"], source + ["f2"])
 		else:
 			if(cmd != "null"):
-				print("[at:commands.gd::exec()]", await Player.move(cmd))
+				print("[at:commands.gd::exec()]", 
+				"attempting to ", cmd, ". Status: ", await Player.move(cmd))
 			
 
 func _on_command_grid_cmd_ready(cmd_pack: Variant) -> void:
@@ -73,9 +76,9 @@ func _on_command_grid_cmd_ready(cmd_pack: Variant) -> void:
 
 
 func _on_reset_pressed() -> void:
+	reset_level.emit()
 	# Reseta a posição e rotação do player, se encontrado
 	if Player:
 		Player.reset_position()
-		
 	else:
 		print("[at:commands.gd::_on_reset_pressed]" + "Não foi possível resetar o player, pois ele não foi encontrado.")
