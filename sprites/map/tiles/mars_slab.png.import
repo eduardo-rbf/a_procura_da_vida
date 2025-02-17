@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdfy0susjkbok"
-path="res://.godot/imported/redstone_lamp.png-7fe32f3ea228427f12d5cbfc23fef457.ctex"
+uid="uid://drdmtlbsu8it8"
+path="res://.godot/imported/mars_slab.png-0c6bfcc9d04cebf8db28c5053347972e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/isometric/redstone_lamp.png"
-dest_files=["res://.godot/imported/redstone_lamp.png-7fe32f3ea228427f12d5cbfc23fef457.ctex"]
+source_file="res://sprites/map/tiles/mars_slab.png"
+dest_files=["res://.godot/imported/mars_slab.png-0c6bfcc9d04cebf8db28c5053347972e.ctex"]
 
 [params]
 
