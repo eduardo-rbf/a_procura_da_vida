@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2eswgrnombp7"
-path="res://.godot/imported/up-button.png-6453115357b1240167fa858701abb45b.ctex"
+uid="uid://cn8e62khxeijh"
+path="res://.godot/imported/ship_slab.png-7ff4a4e5e5a7741253c0d60902027dc3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/up-button.png"
-dest_files=["res://.godot/imported/up-button.png-6453115357b1240167fa858701abb45b.ctex"]
+source_file="res://sprites/map/tiles/ship_slab.png"
+dest_files=["res://.godot/imported/ship_slab.png-7ff4a4e5e5a7741253c0d60902027dc3.ctex"]
 
 [params]
 

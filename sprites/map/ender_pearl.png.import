@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfuffntwba1km"
-path="res://.godot/imported/reset.png-87d3aeb4936ca517f716f1ebf38bf319.ctex"
+uid="uid://h85e7711ongf"
+path="res://.godot/imported/ender_pearl.png-03968be44cc1069cad300d5c3c270dda.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/reset.png"
-dest_files=["res://.godot/imported/reset.png-87d3aeb4936ca517f716f1ebf38bf319.ctex"]
+source_file="res://sprites/map/ender_pearl.png"
+dest_files=["res://.godot/imported/ender_pearl.png-03968be44cc1069cad300d5c3c270dda.ctex"]
 
 [params]
 

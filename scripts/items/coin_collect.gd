@@ -16,6 +16,6 @@ func respawn_coin(position: Vector2) -> void:
 	show()
 
 func _on_area_entered(area: Area2D) -> void:
-	print("Sinal Enviado")
+	#print("[at:coin_collet.gd::_on_area_entered()]", "Sinal Enviado")
 	coin_collected.emit()
 	hide()  # Ao invés de queue_free, apenas escondemos

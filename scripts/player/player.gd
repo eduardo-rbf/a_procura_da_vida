@@ -1,23 +1,27 @@
 extends Area2D
 
-signal player_layer_changed(layer: int)
 signal death
 
-@onready var ground_ray = $GroundRay
-@onready var upper_floor_ray = $UpperRay
-@onready var wall_ray = $WallRay
+@onready var ray_cast = $RayCast
 @onready var animation_player = $Sprites/AnimationPlayer
 var tile_size = 64
 var displacement = 20
 var rot = 0
+var player_coord: Vector2
 
 var animation_speed = 0.5
 var moving = false
 
-var initial_position: Vector2
+var initial_position: Vector3
 var initial_rotation: int
 
-@export var start_coord: Vector2
+#if modified, it resets. x y coordinate on map + z layer
+@export var start_coord: Vector3
+@export var start_rot: int
+@export var map: Node2D
+
+func query_tile(layer, coord):
+	return map.get_layer_tile_solid(layer, coord)
 
 var spam_guard = true
 
@@ -29,6 +33,21 @@ var direction_map = [
 			{"rotation": "face_nw", "movement": Vector2(-1, -0.5), "walk": "walk_down"},
 			{"rotation": "face_sw","movement": Vector2(-1, 0.5), "walk": "walk_left"},
 		]
+		
+	
+#how to get the coordinate of the tile the player is facing?
+#player_coord + - something in x or y depending on rotation
+#direction | rotation | operation
+#southeast | 0		  | x+
+#northwest | 2		  | x-
+#southwest | 3		  | y+
+#northeast | 1		  | y-
+var next_coord = [
+	Vector2(1, 0),
+	Vector2(0, -1),
+	Vector2(-1, 0),
+	Vector2(0, 1)
+]
 
 #var inputs = [
 #			"ui_left", #ccw
@@ -37,117 +56,105 @@ var direction_map = [
 #]
 
 func _ready():
-	#TODO: get inital position from level, spawn and reset there.
+	player_coord = Vector2(start_coord.x, start_coord.y)
+	position = coord_to_position(player_coord)
+	rot = start_rot
 	
-	#map slab height adjustment (+16(center) - 20(height))
-	position.y = -4
-	
-	#							  vectors
-	#							  se  sw
-	#spawn position(hardcoded) at (2, 1)
-	#	    (2 * 64 / 2, 1 * 64 / 2)+(-1 * 64 / 2, 0.5 * 64 / 2)
-	#						(64, 32)+(-32, 16)
-	#							 (32, 48)
-	#position.x = 32
-	#position.y += 48
-	
-	position += tile_size * (Vector2( start_coord.x, start_coord.x / 2) + 
-							 Vector2(-start_coord.y, start_coord.y / 2)) / 2
-	
-	initial_position = position
+	initial_position = Vector3(position.x, position.y, start_coord.z)
 	initial_rotation = rot
+	animation_player.play(direction_map[rot]["rotation"])
+	
+	#query tile under player
+	#print(query_tile(z_index - 1, Vector2(start_coord.x, start_coord.y)))
+	
 	pass
 
+func coord_to_position(coord):
+	#map slab height adjustment (-20(height))
+	#map tile center adjustment (+16, +32)
+	#					  vectors
+	#					  se+  sw+
+	#spawn position at     (2, 1)
+	#(2 * 64 / 2, 1 * 64 / 2)+(-1 * 64 / 2, 0.5 * 64 / 2)
+	#				 (64, 32)+(-32, 16)
+	#					  (32, 48)
+	#position.x = 32
+	#position.y += 48
+	var pixel_postion = Vector2(tile_size/2, -displacement + tile_size/4)
+	pixel_postion += tile_size * (Vector2( coord.x, coord.x / 2) + 
+					 			  Vector2(-coord.y, coord.y / 2)) / 2
+	return pixel_postion
+
 func reset_position():
-	position = initial_position
+	player_coord = Vector2(start_coord.x, start_coord.y)
+	position = coord_to_position(player_coord)
 	rot = initial_rotation
 	animation_player.play(direction_map[rot]["rotation"])
-	z_index = 1
-	player_layer_changed.emit(z_index)
-	ground_ray.target_position = direction_map[rot]["movement"] * tile_size / 2
-	upper_floor_ray.target_position = direction_map[rot]["movement"] * tile_size / 2
-	upper_floor_ray.target_position.y -= displacement
-	wall_ray.target_position = direction_map[rot]["movement"] * tile_size / 2
-	wall_ray.target_position.y -= displacement * 2
-	ground_ray.force_raycast_update()
-	upper_floor_ray.force_raycast_update()
-	wall_ray.force_raycast_update()
+	z_index = initial_position.z
+	ray_cast.target_position = direction_map[rot]["movement"] * tile_size / 2
+	ray_cast.force_raycast_update()
 
 func _input(event: InputEvent) -> void:
 	if moving:
 		return
-		
 	var action: String
 	if event.is_action_pressed("ui_left"):
 		action = "turn_left"
-	elif event.is_action_pressed("ui_right"):
+	if event.is_action_pressed("ui_right"):
 		action = "turn_right"
-	elif event.is_action_pressed("ui_up"):
+	if event.is_action_pressed("ui_up"):
 		action = "advance"
-	elif event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("ui_accept"):
 		action = "jump"
-	
-	if action:
-		print("[at:player.gd::_input()]",action, "->", await move(action))
+	if event is InputEventKey:
+		if event.as_text() == 'F':
+			fall()
+	#print("[at:player.gd::_input()]",action, "->", await move(action))
+	await move(action) #silent
+	pass
 
-func move(dir):
+func move(direction):
 	if moving:
 		return "busy"
 		
-	if(wall_ray.is_colliding()):
-		print(wall_ray.get_collider())
-		pass
-	match dir:
+	match direction:
 		"advance": 
 			await advance()
 		"turn_left", "turn_right":
-			await turn(dir)
+			await turn(direction)
 		"jump":
-			#if ground ahead and no upper or wall ahead
-			if (ground_ray.is_colliding() and !upper_floor_ray.is_colliding()) or wall_ray.is_colliding():
-				jump_in_place() 
-			#else if no wall and no ground ahead
-			elif !wall_ray.is_colliding():
-				jump_forward()
+			await jump()
 		"activate":#test, emit
-			return activate() #TODO
-		"_": #unregistered command
+			await activate() #TODO
+		"_": #unregistered command, null
 			return "fail"
 	
-	#rotation, jumping
-	ground_ray.target_position = direction_map[rot]["movement"] * tile_size / 2
-	upper_floor_ray.target_position = direction_map[rot]["movement"] * tile_size / 2
-	upper_floor_ray.target_position.y -= displacement
-	wall_ray.target_position = direction_map[rot]["movement"] * tile_size / 2
-	wall_ray.target_position.y -= displacement * 2
-	ground_ray.force_raycast_update()
-	upper_floor_ray.force_raycast_update()
-	wall_ray.force_raycast_update()
-		
+	ray_cast.target_position = direction_map[rot]["movement"] * tile_size / 2
+	ray_cast.force_raycast_update()	
 	return "ok"
 	
 func advance():
-	if (ground_ray.is_colliding() and 
-		!upper_floor_ray.is_colliding() and
-		!wall_ray.is_colliding()): #walkable tile
-			
-		moving = true
+	var target_coord = player_coord + next_coord[rot]
+	#print("[at:player.gd::advance()]", "player coordinates: ", player_coord, 
+	#			". Next tile coordinates: ", player_coord + next_coord[rot])
+	#print(query_tile(z_index - 1, target_coord))
+	if (query_tile(z_index - 1, target_coord) and 
+		!( query_tile(z_index, target_coord) or query_tile(z_index + 1, target_coord) ) ):
 		var tween = create_tween()
 		tween.tween_property(self, "position",
 			position + direction_map[rot]["movement"] * tile_size / 2, animation_speed)
+		moving = true
 		animation_player.play(direction_map[rot]["walk"])
-		
-		# Esperar tanto o tween quanto a animação terminarem
 		await tween.finished
 		await animation_player.animation_finished
 		moving = false
+		player_coord = target_coord
 	else:
 	#debug
-		if ground_ray.is_colliding():
+		'''if query_tile(z_index - 1, target_coord):
 			print("[at:player.gd::advance()]", "Walkable tile")
-			pass
-		if upper_floor_ray.is_colliding() or wall_ray.is_colliding():
-			print("[at:player.gd::advance()]", "Something blocks the way.")
+		if query_tile(z_index, target_coord) or query_tile(z_index + 1, target_coord):
+			print("[at:player.gd::advance()]", "Something blocks the way.")'''
 		return "fail"
 	
 func turn(direction):
@@ -159,58 +166,53 @@ func turn(direction):
 		"turn_right":
 			rot = wrap(rot + 1, 0, 4)
 			animation_player.play(direction_map[rot]["rotation"], -1, 1.5)
-
+			
 	await get_tree().create_timer(0.2).timeout
 	moving = false
+
+func jump():
+	var target_coord = player_coord + next_coord[rot]
+	#if ground ahead and no upper or wall ahead
+	if (query_tile(z_index - 1, target_coord) and !query_tile(z_index, target_coord) or 
+		query_tile(z_index + 1, target_coord) ):
+		jump_in_place() 
+	#else if no wall and no ground ahead
+	elif !query_tile(z_index + 1, target_coord):
+		jump_forward()
 
 func jump_in_place():
 	print("[at:player.gd::jump_in_place()]", "Player has jumped")
 	#play animation, tween up and down.
 
-func jump_forward():#ugh
+func jump_forward():
 	var tween = create_tween()
 	tween.tween_property(self, "position",
-		position + upper_floor_ray.target_position, animation_speed)
+		position + direction_map[rot]["movement"] * tile_size / 2 + Vector2(0, -20), animation_speed)
 	moving = true
 	animation_player.play(direction_map[rot]["walk"])
 	z_index += 1
-	player_layer_changed.emit(z_index)
 	await tween.finished
 	moving = false
+	player_coord += next_coord[rot]
 	await fall()
-	ground_ray.target_position = direction_map[rot]["movement"] * tile_size / 2
-	ground_ray.force_raycast_update()
-
-func _physics_process(delta: float) -> void:
-	if ground_ray.is_colliding() and !spam_guard:
-		print("[at:player.gd::_physics_process()]", "ground")
-		spam_guard = true
-	elif !ground_ray.is_colliding() and spam_guard:
-		print("[at:player.gd::_physics_process()]", "no ground")
-		spam_guard = false
 
 func fall():#no floor below after jump
+	pass
 	#try to collide with floor below
-	ground_ray.target_position = Vector2(0, 0)
-	while(!ground_ray.is_colliding()):
+	#ray_cast.target_position = Vector2(0, 0)
+	while(!query_tile(z_index - 1, player_coord)):
+	#	print("[at:player.gd::fall()]", "Not colliding with floor at layer ", z_index, ", falling further.")
 		if z_index <= 0: 
 			death.emit()
 			return "death"
-		print("[at:player.gd::fall()]", "Not colliding with floor at layer ", z_index, ", falling further.")
-		#print("[at:player.gd::fall()] ", 
-		#"ground: ", ground_ray.is_colliding(), 
-		#", upper: ", upper_floor_ray.is_colliding(), 
-		#", wall: ", wall_ray.is_colliding())
+			
 		z_index -= 1
-		player_layer_changed.emit(z_index)
 		var tween = create_tween()
 		tween.tween_property(self, "position",
 			Vector2(position.x, position.y + 20), animation_speed / 2)
 		moving = true
 		await  tween.finished
 		moving = false
-		ground_ray.target_position = Vector2(0, 20)
-		ground_ray.force_raycast_update()
 
 func activate():
 	return "TODO"

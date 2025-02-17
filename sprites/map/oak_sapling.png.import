@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsbj6x2xjeox"
-path="res://.godot/imported/left-button.png-c9385943100c22db98ade886d5c56b2d.ctex"
+uid="uid://cao3lb33tgt3b"
+path="res://.godot/imported/oak_sapling.png-a87f7d243a3eb67c240006780896ee81.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/left-button.png"
-dest_files=["res://.godot/imported/left-button.png-c9385943100c22db98ade886d5c56b2d.ctex"]
+source_file="res://sprites/map/oak_sapling.png"
+dest_files=["res://.godot/imported/oak_sapling.png-a87f7d243a3eb67c240006780896ee81.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdfy0susjkbok"
-path="res://.godot/imported/redstone_lamp.png-7fe32f3ea228427f12d5cbfc23fef457.ctex"
+uid="uid://dqbsyfjgu5gg0"
+path="res://.godot/imported/spawn_slab.png-cfc2b0295f4240021d369a48c40248e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/isometric/redstone_lamp.png"
-dest_files=["res://.godot/imported/redstone_lamp.png-7fe32f3ea228427f12d5cbfc23fef457.ctex"]
+source_file="res://sprites/map/tiles/spawn_slab.png"
+dest_files=["res://.godot/imported/spawn_slab.png-cfc2b0295f4240021d369a48c40248e6.ctex"]
 
 [params]
 

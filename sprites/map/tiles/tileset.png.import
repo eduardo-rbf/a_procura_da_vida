@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8hhiia34hnnx"
-path="res://.godot/imported/down-button.png-7c38bccc48ddc2ad3a56d4fea078a0d1.ctex"
+uid="uid://dbekq51ar8201"
+path="res://.godot/imported/tileset.png-31a1b6f8400c8836771c957bfcc30ef9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/down-button.png"
-dest_files=["res://.godot/imported/down-button.png-7c38bccc48ddc2ad3a56d4fea078a0d1.ctex"]
+source_file="res://sprites/map/tiles/tileset.png"
+dest_files=["res://.godot/imported/tileset.png-31a1b6f8400c8836771c957bfcc30ef9.ctex"]
 
 [params]
 

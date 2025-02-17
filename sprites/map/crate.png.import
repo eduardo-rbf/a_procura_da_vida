@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2crtv2uo3vhl"
-path="res://.godot/imported/right-button.png-aae7e359d3e69258460bb19ae1453611.ctex"
+uid="uid://b1ui65dlotot3"
+path="res://.godot/imported/crate.png-f12eb970a546cc201b86e67215e34961.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/right-button.png"
-dest_files=["res://.godot/imported/right-button.png-aae7e359d3e69258460bb19ae1453611.ctex"]
+source_file="res://sprites/map/crate.png"
+dest_files=["res://.godot/imported/crate.png-f12eb970a546cc201b86e67215e34961.ctex"]
 
 [params]
 

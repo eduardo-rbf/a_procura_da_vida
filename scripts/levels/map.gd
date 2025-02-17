@@ -6,37 +6,28 @@ var layers = Array()
 func _ready():
 	#instancing and using handmade maps are both valid options
 	var first_layer = $Level_layer
-	print(first_layer.z_index)
-	layers.append(first_layer)
+	
+	layers.append(first_layer) #layer 0
 	var next_layer = first_layer.find_child("Level_layer")
-	print(next_layer.z_index)
-	while(next_layer):
-		print(next_layer)
-		print(next_layer.z_index)
+	while(next_layer): #every layer between floor and any other must be occupied even if empty
 		layers.append(next_layer)
 		next_layer = next_layer.find_child("Level_layer")
 		pass
+	#instance player, trigger layers update
 
-func _on_player_layer_changed(layer: int) -> void:
-	#assuming jump up
-	#physics layer above "layer" becomes upper
-	#add 0b10, remove 0b100
-	#physics layer above upper becomes wall
-	#add 0b100
-	#physics layer below is disabled.
-	#remove 0b1
-	print("at:map.gd::_on_player_layer_changed()", "layer: ", layer)
-	for map_layer: TileMapLayer in layers:
-		if map_layer.z_index == (layer + 1): #physics layer above "layer" becomes wall
-			#print("at:map.gd::_on_player_layer_changed()", "updating wall: ", map_layer.z_index)
-			map_layer.tile_set.set_physics_layer_collision_layer(0, 3)
-		elif map_layer.z_index == layer: #physics layer at "layer" becomes upper
-			#print("at:map.gd::_on_player_layer_changed()", "updating upper: ", map_layer.z_index)
-			map_layer.tile_set.set_physics_layer_collision_layer(0, 2)
-		elif map_layer.z_index == (layer - 1): #physics layer below "layer" becomes walkable
-			#print("at:map.gd::_on_player_layer_changed()", "updating ground: ", map_layer.z_index
-			map_layer.tile_set.set_physics_layer_collision_layer(0, 1)
-		else: #every other physics layer is disabled
-			#print("at:map.gd::_on_player_layer_changed()", "updating: ", map_layer.z_index)
-			map_layer.tile_set.set_physics_layer_collision_layer(0, 0)
-	print("at:map.gd::_on_player_layer_changed()", "finished.")
+#just in case
+func _on_player_layer_changed(_layer: int) -> void:
+	pass
+
+##existing tiles can be checked with
+##get_cell_tile_data(Vector2(x,y))
+##non existing tiles will be null
+##the properties of tiles can be accessed with tile.get_custom_data
+func get_layer_tile_solid(layer: int, tile: Vector2) -> bool:
+	if layer >= 0 and layer < layers.size():
+		return is_instance_valid(layers[layer].get_cell_tile_data(tile))
+	return false
+
+#TileData.get_custom_data("property as in the TileSet config under the TileMapLayer UI")
+#can be used to identify tiles and react accordingly
+#as in, triggering the end of the level

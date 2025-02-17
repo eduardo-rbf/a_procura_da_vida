@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw27mxvdq3oug"
-path="res://.godot/imported/iso_tileset.png-b40ea40ce3799caec7b8f8f8dfcc0c9a.ctex"
+uid="uid://divcuaxnabh7y"
+path="res://.godot/imported/activated_slab.png-0f558b71e318dc306f6412950f62115e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/iso_tileset.png"
-dest_files=["res://.godot/imported/iso_tileset.png-b40ea40ce3799caec7b8f8f8dfcc0c9a.ctex"]
+source_file="res://sprites/map/tiles/activated_slab.png"
+dest_files=["res://.godot/imported/activated_slab.png-0f558b71e318dc306f6412950f62115e.ctex"]
 
 [params]
 

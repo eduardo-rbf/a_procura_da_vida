@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgd4lgeeu8y2o"
-path="res://.godot/imported/play_btn_placeholder.png-912039b82f138175d22fc80c1d3aab25.ctex"
+uid="uid://dl6dnpcihurtt"
+path="res://.godot/imported/earth_slab.png-a9ad2515feb431d1f0491382535985cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/play_btn_placeholder.png"
-dest_files=["res://.godot/imported/play_btn_placeholder.png-912039b82f138175d22fc80c1d3aab25.ctex"]
+source_file="res://sprites/map/tiles/earth_slab.png"
+dest_files=["res://.godot/imported/earth_slab.png-a9ad2515feb431d1f0491382535985cf.ctex"]
 
 [params]
 

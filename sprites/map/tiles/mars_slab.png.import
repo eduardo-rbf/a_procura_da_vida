@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddm47wa4l2xwa"
-path="res://.godot/imported/player-placeholder.png-bc9bcecae3b4b8097e10a9951374dc15.ctex"
+uid="uid://drdmtlbsu8it8"
+path="res://.godot/imported/mars_slab.png-0c6bfcc9d04cebf8db28c5053347972e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/player-placeholder.png"
-dest_files=["res://.godot/imported/player-placeholder.png-bc9bcecae3b4b8097e10a9951374dc15.ctex"]
+source_file="res://sprites/map/tiles/mars_slab.png"
+dest_files=["res://.godot/imported/mars_slab.png-0c6bfcc9d04cebf8db28c5053347972e.ctex"]
 
 [params]
 
