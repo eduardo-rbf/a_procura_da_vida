@@ -9,6 +9,7 @@ var cmd_counter = 0
 var commands = Dictionary()
 var cmd_over = false
 var cmd_busy = false
+var halt_flag = false
 
 func _ready():
 	if not Player:
@@ -45,10 +46,13 @@ func advance(state):
 			cmd_over = true
 
 #Função temporária de testes.
+#ASSINCRONA
 func exec(cmd_sequence: Array, source: Array):
 	#recursion 😱
 	#source = f1/f2, recursion guard
 	for cmd in cmd_sequence:
+		if halt_flag: 
+			return
 		if cmd.contains("f1"):	
 			if source.has("f1"):
 				print("[at:commands.gd::exec()]", "Recursion found, halting.")
@@ -61,8 +65,10 @@ func exec(cmd_sequence: Array, source: Array):
 			await exec(commands["f2"], source + ["f2"])
 		else:
 			if(cmd != "null"):
-				print("[at:commands.gd::exec()]", 
-				"attempting to ", cmd, ". Status: ", await Player.move(cmd))
+				#print("[at:commands.gd::exec()]", 
+				#"attempting to ", cmd, ". Status: ", await Player.move(cmd))
+				await Player.move(cmd)
+				#quiet
 			
 
 func _on_command_grid_cmd_ready(cmd_pack: Variant) -> void:
@@ -71,13 +77,18 @@ func _on_command_grid_cmd_ready(cmd_pack: Variant) -> void:
 	if Player and !cmd_busy:
 		cmd_busy = true
 		commands = cmd_pack
-		exec(commands["main"], ["main"])
+		halt_flag = false
+		await exec(commands["main"], ["main"])
+		if halt_flag:
+			_on_reset_pressed()
+			halt_flag = false
 		cmd_busy = false
 	
 	#do other stuff, propagate signal, whatever
 
 
 func _on_reset_pressed() -> void:
+	halt_flag = true
 	reset_level.emit()
 	# Reseta a posição e rotação do player, se encontrado
 	if Player:
