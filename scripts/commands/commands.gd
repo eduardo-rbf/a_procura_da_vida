@@ -66,6 +66,8 @@ func exec(cmd_sequence: Array, source: Array):
 			
 
 func _on_command_grid_cmd_ready(cmd_pack: Variant) -> void:
+	#hack, refactor
+	_on_reset_pressed()
 	if Player and !cmd_busy:
 		cmd_busy = true
 		commands = cmd_pack

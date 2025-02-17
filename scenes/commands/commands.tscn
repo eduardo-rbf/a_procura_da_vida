@@ -177,6 +177,8 @@ offset_bottom = -0.00800323
 texture = ExtResource("12_ne5el")
 
 [connection signal="pressed" from="Buttons/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Buttons/Reset" to="CommandGridF2" method="_on_reset_pressed"]
+[connection signal="pressed" from="Buttons/Reset" to="CommandGridF1" method="_on_reset_pressed"]
 [connection signal="pressed" from="Buttons/Reset" to="CommandGrid" method="_on_reset_pressed"]
 [connection signal="pressed" from="Buttons/Trigger" to="CommandGrid" method="_on_trigger_pressed"]
 [connection signal="cmd_ready" from="CommandGrid" to="." method="_on_command_grid_cmd_ready"]
