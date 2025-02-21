@@ -5,6 +5,7 @@ class_name LevelSelector
 @onready var h_container: HBoxContainer = get_node("ScrollList/HContainer")
 
 func _ready() -> void:
+	$"Fade Transiction".fade_in()
 	$music_player.play(0)
 	
 	initial_configuration()
@@ -21,10 +22,14 @@ func initial_configuration() -> void:
 		
 		var container_level_data: Array = Global.levels_data[container_index + 1]
 		if container_level_data[1] == false:
+			container_button.disabled = true
 			container_button.text = "?"
+		else:
+			container_button.disabled = false
+			container_button.connect("mouse_entered", Callable(self, "_on_menu_hover"))
 			
 		if container_level_data[2] and container_level_data[3]:
-			container_label.text = "⭐ ⭐"
+			container_label.text = "⭐⭐"
 		elif container_level_data[2]:
 			container_label.text = "⭐"
 		else:
@@ -33,12 +38,21 @@ func initial_configuration() -> void:
 			
 func on_button_pressed(button_name: String) -> void:
 	if button_name == "Menu":
+		$"Fade Transiction".fade_out()
+		$"Fade Transiction/fade_timer".start()
+		await $"Fade Transiction/fade_timer".timeout
 		var _change_level: bool = get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
 		return
 		
 	var level_info: Array = Global.levels_data[int(button_name)]
 	if level_info[1]:
+		$"Fade Transiction".fade_out() #sheesh
+		$"Fade Transiction/fade_timer".start()
+		await $"Fade Transiction/fade_timer".timeout
 		print("Mudar para o nível: " + button_name + "\n")
 		var _change_level: bool = get_tree().change_scene_to_file(level_info[0])
 	else:
 		print("Nível bloqueado!\n")
+
+func _on_menu_hover() -> void:
+	$button_hover_player.play(0)

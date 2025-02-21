@@ -1,21 +1,16 @@
-[gd_scene load_steps=32 format=3 uid="uid://ntq8pdmormpl"]
+[gd_scene load_steps=27 format=3 uid="uid://ntq8pdmormpl"]
 
 [ext_resource type="Script" path="res://scripts/main_menu/main_menu.gd" id="1_7b44b"]
 [ext_resource type="Texture2D" uid="uid://c0ca60mj2bbpr" path="res://sprites/outer_space/backgrounds/background_4.png" id="2_rv48k"]
 [ext_resource type="Texture2D" uid="uid://c733tbacu7lo7" path="res://sprites/menu/title.png" id="3_pe3lq"]
 [ext_resource type="PackedScene" uid="uid://e74ldrlgmmv8" path="res://scenes/transictions/fade_transiction.tscn" id="4_lj5cx"]
-[ext_resource type="Texture2D" uid="uid://idm6f8dt88qn" path="res://sprites/menu/buttons/novo_jogo.png" id="5_a4k22"]
 [ext_resource type="Texture2D" uid="uid://brkvrtcrcnhdv" path="res://sprites/outer_space/planets/earth_planet.png" id="5_lidyp"]
-[ext_resource type="Texture2D" uid="uid://bv87ukphhqhtj" path="res://sprites/menu/buttons/seletor_de_fases.png" id="6_74x85"]
-[ext_resource type="Texture2D" uid="uid://0a6x6yd6jdun" path="res://sprites/menu/buttons/novo_jogo_hover.png" id="6_p7vb2"]
 [ext_resource type="Texture2D" uid="uid://c5fqmjgy07npm" path="res://sprites/outer_space/planets/lava_planet.png" id="6_t35ri"]
 [ext_resource type="Texture2D" uid="uid://cxqbmrtw15jrr" path="res://sprites/outer_space/asteroids/comet/comet_0.png" id="7_my2mt"]
-[ext_resource type="Texture2D" uid="uid://dkwwo6xgxw0ce" path="res://sprites/menu/buttons/sair.png" id="7_wrf86"]
-[ext_resource type="Texture2D" uid="uid://s3hmdiybx3xk" path="res://sprites/menu/buttons/sair_hover.png" id="8_7mifp"]
 [ext_resource type="Texture2D" uid="uid://beq8ww0xdlqsb" path="res://sprites/outer_space/asteroids/comet/comet_1.png" id="8_ay67a"]
-[ext_resource type="Texture2D" uid="uid://bup8wsfndqwuy" path="res://sprites/menu/buttons/seletor_de_fases_hover.png" id="8_rpj18"]
 [ext_resource type="Texture2D" uid="uid://crf0i37fdrxy" path="res://sprites/outer_space/asteroids/comet/comet_2.png" id="9_6yp30"]
 [ext_resource type="Texture2D" uid="uid://dv3ut03o87n67" path="res://sprites/outer_space/asteroids/comet/comet_3.png" id="10_t5qmq"]
+[ext_resource type="FontFile" uid="uid://bptqwpmjrwgr5" path="res://fonts/PublicPixel-rv0pA.ttf" id="11_7ui4q"]
 [ext_resource type="AudioStream" uid="uid://b3ox4o77avi6h" path="res://sounds/effects/button_hover.mp3" id="12_gmkvl"]
 [ext_resource type="AudioStream" uid="uid://badfjvsqb46u0" path="res://sounds/musics/music.mp3" id="12_iq3qq"]
 [ext_resource type="Texture2D" uid="uid://ckhfark3rmmtl" path="res://sprites/menu/logo.png" id="19_pkab2"]
@@ -283,31 +278,56 @@ speed_scale = 0.5
 
 [node name="VContainer" type="VBoxContainer" parent="GUI"]
 layout_mode = 2
-offset_left = 328.0
-offset_top = 245.5
-offset_right = 952.0
-offset_bottom = 474.5
+offset_left = 124.0
+offset_top = 282.0
+offset_right = 1156.0
+offset_bottom = 630.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="NewGame" type="TextureButton" parent="GUI/VContainer"]
+[node name="NewGame" type="Button" parent="GUI/VContainer"]
 layout_mode = 2
 focus_mode = 0
-texture_normal = ExtResource("5_a4k22")
-texture_hover = ExtResource("6_p7vb2")
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.101961, 0.678431, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("11_7ui4q")
+theme_override_font_sizes/font_size = 56
+text = "NOVO JOGO"
+flat = true
 
-[node name="LevelSelector" type="TextureButton" parent="GUI/VContainer"]
+[node name="LevelSelector" type="Button" parent="GUI/VContainer"]
 layout_mode = 2
 focus_mode = 0
-texture_normal = ExtResource("6_74x85")
-texture_hover = ExtResource("8_rpj18")
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.101961, 0.678431, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_7ui4q")
+theme_override_font_sizes/font_size = 56
+text = "SELETOR DE FASES"
+flat = true
 
-[node name="Quit" type="TextureButton" parent="GUI/VContainer"]
+[node name="Credits" type="Button" parent="GUI/VContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.101961, 0.678431, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_7ui4q")
+theme_override_font_sizes/font_size = 56
+text = "CREDITOS"
+flat = true
+
+[node name="Quit" type="Button" parent="GUI/VContainer"]
 layout_mode = 2
 focus_mode = 0
-texture_normal = ExtResource("7_wrf86")
-texture_hover = ExtResource("8_7mifp")
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.101961, 0.678431, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_7ui4q")
+theme_override_font_sizes/font_size = 56
+text = "SAIR"
+flat = true
 
 [node name="Fade Transiction" parent="." instance=ExtResource("4_lj5cx")]
 visible = false
@@ -323,7 +343,9 @@ volume_db = -10.0
 stream = ExtResource("12_iq3qq")
 volume_db = -20.0
 
-[connection signal="mouse_entered" from="GUI/VContainer/NewGame" to="." method="_on_new_game_mouse_entered"]
-[connection signal="mouse_entered" from="GUI/VContainer/LevelSelector" to="." method="_on_level_selector_mouse_entered"]
-[connection signal="mouse_entered" from="GUI/VContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_entered" from="GUI/VContainer/NewGame" to="." method="_on_menu_hover"]
+[connection signal="mouse_entered" from="GUI/VContainer/LevelSelector" to="." method="_on_menu_hover"]
+[connection signal="mouse_entered" from="GUI/VContainer/Credits" to="." method="_on_menu_hover"]
+[connection signal="mouse_entered" from="GUI/VContainer/Quit" to="." method="_on_menu_hover"]
 [connection signal="timeout" from="Fade Transiction/fade_timer" to="." method="_on_fade_timer_timeout"]
+[connection signal="timeout" from="Fade Transiction/fade_timer" to="Fade Transiction" method="_on_fade_timer_timeout"]

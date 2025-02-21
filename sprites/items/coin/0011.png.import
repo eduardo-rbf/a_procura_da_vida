@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkwwo6xgxw0ce"
-path="res://.godot/imported/sair.png-7595eab63a25c5c5f8e2c47df6dadfa7.ctex"
+uid="uid://ui5o6toquqe3"
+path="res://.godot/imported/0011.png-b0588cc19f21f21f101c2ef594f7d7ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/menu/buttons/sair.png"
-dest_files=["res://.godot/imported/sair.png-7595eab63a25c5c5f8e2c47df6dadfa7.ctex"]
+source_file="res://sprites/items/coin/0011.png"
+dest_files=["res://.godot/imported/0011.png-b0588cc19f21f21f101c2ef594f7d7ac.ctex"]
 
 [params]
 

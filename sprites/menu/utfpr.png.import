@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0a6x6yd6jdun"
-path="res://.godot/imported/novo_jogo_hover.png-7c338243f92d87b0e42f9ee328e6163f.ctex"
+uid="uid://b43mgpog8lvt7"
+path="res://.godot/imported/utfpr.png-09260fcd82b58cea5761d6e9fdc656f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/menu/buttons/novo_jogo_hover.png"
-dest_files=["res://.godot/imported/novo_jogo_hover.png-7c338243f92d87b0e42f9ee328e6163f.ctex"]
+source_file="res://sprites/menu/utfpr.png"
+dest_files=["res://.godot/imported/utfpr.png-09260fcd82b58cea5761d6e9fdc656f0.ctex"]
 
 [params]
 

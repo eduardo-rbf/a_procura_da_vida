@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bxjodrks3pe56"]
+[gd_scene load_steps=15 format=4 uid="uid://bxjodrks3pe56"]
 
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_6s1j8"]
 [ext_resource type="PackedScene" uid="uid://dqibt6jjc6ks5" path="res://scenes/hud/coin_hud.tscn" id="2_esu8h"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dbekq51ar8201" path="res://sprites/map/tiles/tileset.png" id="4_572bf"]
 [ext_resource type="PackedScene" uid="uid://d1crxsikq8fog" path="res://scenes/player/player.tscn" id="4_jtcmv"]
 [ext_resource type="PackedScene" uid="uid://br1i6o4s2s6lj" path="res://scenes/Items/Coin.tscn" id="9_kxry8"]
+[ext_resource type="AudioStream" uid="uid://badfjvsqb46u0" path="res://sounds/musics/music.mp3" id="10_ce3uf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ysxf1"]
 texture = ExtResource("4_572bf")
@@ -137,3 +138,8 @@ offset_bottom = 46.0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("3_xyc0r")
 text = "Fases"
+
+[node name="music_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ce3uf")
+volume_db = -20.0
+autoplay = true

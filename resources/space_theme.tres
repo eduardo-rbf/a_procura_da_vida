@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bdxxc1ajxlo0h"]
+
+[ext_resource type="FontFile" uid="uid://dq0fbhstjajhe" path="res://fonts/SEGUIEMJ.TTF" id="1_4kqsn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_707gh"]
+bg_color = Color(0.864963, 0.397607, 0.441377, 0.219608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0p8yl"]
+bg_color = Color(0.47, 0.275, 0.5, 0.882353)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[resource]
+Button/colors/font_color = Color(1, 0.886667, 0.15, 1)
+Button/fonts/font = ExtResource("1_4kqsn")
+Button/styles/disabled = SubResource("StyleBoxFlat_707gh")
+Button/styles/normal = SubResource("StyleBoxFlat_0p8yl")

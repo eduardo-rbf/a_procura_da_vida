@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://cp0gah7retg7v"]
+
+[ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_8d8nh"]
+[ext_resource type="PackedScene" uid="uid://e74ldrlgmmv8" path="res://scenes/transictions/fade_transiction.tscn" id="2_jrmjc"]
+[ext_resource type="Script" path="res://scripts/levels/map.gd" id="3_ps84t"]
+[ext_resource type="PackedScene" uid="uid://bu0ghvyprf472" path="res://scenes/levels/map_layer.tscn" id="4_ymvmt"]
+[ext_resource type="PackedScene" uid="uid://d1crxsikq8fog" path="res://scenes/player/player.tscn" id="5_ohvi3"]
+[ext_resource type="PackedScene" uid="uid://dvy6pm68lwngk" path="res://scenes/commands/commands.tscn" id="6_8us27"]
+[ext_resource type="PackedScene" uid="uid://br1i6o4s2s6lj" path="res://scenes/Items/Coin.tscn" id="7_r56bn"]
+[ext_resource type="PackedScene" uid="uid://dqibt6jjc6ks5" path="res://scenes/hud/coin_hud.tscn" id="8_6tf85"]
+[ext_resource type="FontFile" uid="uid://fg48b4w15c1a" path="res://resources/roboto_dynamic_font.tres" id="9_bgp0y"]
+
+[node name="Level" type="Node2D" node_paths=PackedStringArray("_hud")]
+y_sort_enabled = true
+script = ExtResource("1_8d8nh")
+_hud = NodePath("HUD")
+
+[node name="Fade Transiction" parent="." instance=ExtResource("2_jrmjc")]
+visible = false
+
+[node name="Map" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("3_ps84t")
+
+[node name="Level_layer" parent="Map" instance=ExtResource("4_ymvmt")]
+
+[node name="Player" parent="." node_paths=PackedStringArray("map") instance=ExtResource("5_ohvi3")]
+z_index = 1
+y_sort_enabled = true
+map = NodePath("../Map")
+
+[node name="Commands" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("6_8us27")]
+z_index = 100
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 848.0
+offset_top = 104.0
+offset_right = 1232.0
+offset_bottom = 488.0
+Player = NodePath("../Player")
+
+[node name="LevelScript" type="Node" parent="."]
+
+[node name="coins" type="Node2D" parent="."]
+top_level = true
+
+[node name="Coin" parent="coins" instance=ExtResource("7_r56bn")]
+position = Vector2(224, 224)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="coin_hud" parent="HUD" instance=ExtResource("8_6tf85")]
+
+[node name="fases_button" type="Button" parent="HUD" groups=["Button"]]
+offset_left = 23.0
+offset_top = 16.0
+offset_right = 75.0
+offset_bottom = 46.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("9_bgp0y")
+text = "Fases"
+
+[node name="music_player" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0

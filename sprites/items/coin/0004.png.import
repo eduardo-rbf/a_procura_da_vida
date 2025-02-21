@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bup8wsfndqwuy"
-path="res://.godot/imported/seletor_de_fases_hover.png-50cb1f1b7d5c92dc76a7811f199d007c.ctex"
+uid="uid://cuko2ookx4sga"
+path="res://.godot/imported/0004.png-aff80bb8e1b82d0adc48164299b6a1df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/menu/buttons/seletor_de_fases_hover.png"
-dest_files=["res://.godot/imported/seletor_de_fases_hover.png-50cb1f1b7d5c92dc76a7811f199d007c.ctex"]
+source_file="res://sprites/items/coin/0004.png"
+dest_files=["res://.godot/imported/0004.png-aff80bb8e1b82d0adc48164299b6a1df.ctex"]
 
 [params]
 

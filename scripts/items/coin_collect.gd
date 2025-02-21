@@ -2,6 +2,7 @@ extends Area2D
 
 signal coin_collected
 var initial_position: Vector2
+@onready var anim = $AnimationPlayer
 
 func _ready() -> void:
 	add_to_group("coins")
@@ -17,5 +18,6 @@ func respawn_coin(position: Vector2) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	#print("[at:coin_collet.gd::_on_area_entered()]", "Sinal Enviado")
-	coin_collected.emit()
-	hide()  # Ao invés de queue_free, apenas escondemos
+	if visible:
+		coin_collected.emit()
+		hide()  # Ao invés de queue_free, apenas escondemos

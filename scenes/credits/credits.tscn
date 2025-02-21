@@ -1,0 +1,432 @@
+[gd_scene load_steps=28 format=3 uid="uid://clsca8q20nhx5"]
+
+[ext_resource type="Script" path="res://scripts/credits/credits.gd" id="1_uidds"]
+[ext_resource type="Texture2D" uid="uid://c0ca60mj2bbpr" path="res://sprites/outer_space/backgrounds/background_4.png" id="2_crkow"]
+[ext_resource type="Texture2D" uid="uid://brkvrtcrcnhdv" path="res://sprites/outer_space/planets/earth_planet.png" id="3_y4whi"]
+[ext_resource type="Texture2D" uid="uid://c5fqmjgy07npm" path="res://sprites/outer_space/planets/lava_planet.png" id="4_p7ju3"]
+[ext_resource type="Texture2D" uid="uid://cxqbmrtw15jrr" path="res://sprites/outer_space/asteroids/comet/comet_0.png" id="5_fonk8"]
+[ext_resource type="Texture2D" uid="uid://beq8ww0xdlqsb" path="res://sprites/outer_space/asteroids/comet/comet_1.png" id="6_brlf3"]
+[ext_resource type="Texture2D" uid="uid://crf0i37fdrxy" path="res://sprites/outer_space/asteroids/comet/comet_2.png" id="7_n5upu"]
+[ext_resource type="Texture2D" uid="uid://dv3ut03o87n67" path="res://sprites/outer_space/asteroids/comet/comet_3.png" id="8_iweyy"]
+[ext_resource type="Theme" uid="uid://bdxxc1ajxlo0h" path="res://resources/space_theme.tres" id="9_nxaep"]
+[ext_resource type="FontFile" uid="uid://fg48b4w15c1a" path="res://resources/roboto_dynamic_font.tres" id="9_vefvn"]
+[ext_resource type="FontFile" uid="uid://foc3m18h6wix" path="res://fonts/roboto_slab.ttf" id="11_70iyc"]
+[ext_resource type="PackedScene" uid="uid://e74ldrlgmmv8" path="res://scenes/transictions/fade_transiction.tscn" id="11_ou8fw"]
+[ext_resource type="AudioStream" uid="uid://b3ox4o77avi6h" path="res://sounds/effects/button_hover.mp3" id="12_jkxqr"]
+[ext_resource type="AudioStream" uid="uid://badfjvsqb46u0" path="res://sounds/musics/music.mp3" id="13_a835q"]
+[ext_resource type="Texture2D" uid="uid://b43mgpog8lvt7" path="res://sprites/menu/utfpr.png" id="14_4gseo"]
+
+[sub_resource type="Animation" id="Animation_uo73x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dlake"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, -2), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u7dkb"]
+_data = {
+"RESET": SubResource("Animation_uo73x"),
+"idle": SubResource("Animation_dlake")
+}
+
+[sub_resource type="Animation" id="Animation_vv3op"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_djhl1"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.48, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2, 2), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tsfs2"]
+_data = {
+"RESET": SubResource("Animation_vv3op"),
+"idle": SubResource("Animation_djhl1")
+}
+
+[sub_resource type="Animation" id="Animation_vyi8k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_fonk8")]
+}
+
+[sub_resource type="Animation" id="Animation_tb51r"]
+resource_name = "moving"
+length = 7.50002
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.242427, 0.489627, 0.752001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_fonk8"), ExtResource("6_brlf3"), ExtResource("7_n5upu"), ExtResource("8_iweyy")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2000, 2000), Vector2(-2000, 2000)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_701yd"]
+_data = {
+"RESET": SubResource("Animation_vyi8k"),
+"moving": SubResource("Animation_tb51r")
+}
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_7xtcy"]
+color = Color(1, 0.8, 0, 1)
+thickness = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sb6ht"]
+bg_color = Color(1, 1, 1, 0.901961)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0.93408, 0.93408, 0.93408, 0.6)
+shadow_size = 20
+
+[sub_resource type="Theme" id="Theme_uqspx"]
+Panel/styles/panel = SubResource("StyleBoxFlat_sb6ht")
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_uidds")
+
+[node name="spr_background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(640, 360)
+scale = Vector2(2, 2)
+texture = ExtResource("2_crkow")
+
+[node name="spr_earth_planet" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(191, 537)
+scale = Vector2(2.946, 3)
+texture = ExtResource("3_y4whi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="spr_earth_planet"]
+libraries = {
+"": SubResource("AnimationLibrary_u7dkb")
+}
+autoplay = "idle"
+
+[node name="spr_lava_planet" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1000, 447)
+scale = Vector2(3, 3)
+texture = ExtResource("4_p7ju3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="spr_lava_planet"]
+libraries = {
+"": SubResource("AnimationLibrary_tsfs2")
+}
+autoplay = "idle"
+speed_scale = 2.0
+
+[node name="spr_shooting_star" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(451, -71)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_fonk8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="spr_shooting_star"]
+libraries = {
+"": SubResource("AnimationLibrary_701yd")
+}
+autoplay = "moving"
+speed_scale = 1.5
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="CenterContainer" type="CenterContainer" parent="GUI"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 84.0
+offset_bottom = 52.0
+
+[node name="Menu" type="Button" parent="GUI/CenterContainer" groups=["Button"]]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("9_nxaep")
+theme_override_fonts/font = ExtResource("9_vefvn")
+text = "Menu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 1216.0
+offset_bottom = 656.0
+
+[node name="Title" type="Label" parent="GUI/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101961, 0.678431, 1, 1)
+theme_override_fonts/font = ExtResource("11_70iyc")
+theme_override_font_sizes/font_size = 60
+text = "A procura da vida"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Info" type="Label" parent="GUI/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101961, 0.678431, 1, 1)
+theme_override_fonts/font = ExtResource("11_70iyc")
+theme_override_font_sizes/font_size = 24
+text = "Projeto Integrador I: Educação Computcional.                                                           "
+
+[node name="Info2" type="Label" parent="GUI/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101961, 0.678431, 1, 1)
+theme_override_fonts/font = ExtResource("11_70iyc")
+theme_override_font_sizes/font_size = 24
+text = "Docente: Giani Carla Ito"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="GUI/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_7xtcy")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GUI/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Info" type="Label" parent="GUI/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101961, 0.678431, 1, 1)
+theme_override_fonts/font = ExtResource("11_70iyc")
+theme_override_font_sizes/font_size = 24
+text = "Time de Design                                   "
+
+[node name="HSeparator" type="HSeparator" parent="GUI/VBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_7xtcy")
+
+[node name="Info2" type="Label" parent="GUI/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101961, 0.678431, 1, 1)
+theme_override_fonts/font = ExtResource("11_70iyc")
+theme_override_font_sizes/font_size = 24
+text = "Gabriel A. Bermond"
+
+[node name="Info3" type="Label" parent="GUI/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101961, 0.678431, 1, 1)
+theme_override_fonts/font = ExtResource("11_70iyc")
+theme_override_font_sizes/font_size = 24
+text = "Gustavo Bordinhon L."
+
+[node name="Info4" type="Label" parent="GUI/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101961, 0.678431, 1, 1)
+theme_override_fonts/font = ExtResource("11_70iyc")
+theme_override_font_sizes/font_size = 24
+text = "Gabriel Lima Scheffler"
+
+[node name="VSeparator2" type="VSeparator" parent="GUI/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="GUI/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Info" type="Label" parent="GUI/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101961, 0.678431, 1, 1)
+theme_override_fonts/font = ExtResource("11_70iyc")
+theme_override_font_sizes/font_size = 24
+text = "         Time de Desenvolvimento         "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="GUI/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_7xtcy")
+
+[node name="Info2" type="Label" parent="GUI/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101961, 0.678431, 1, 1)
+theme_override_fonts/font = ExtResource("11_70iyc")
+theme_override_font_sizes/font_size = 24
+text = "Eduardo R. Baldini F."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info3" type="Label" parent="GUI/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101961, 0.678431, 1, 1)
+theme_override_fonts/font = ExtResource("11_70iyc")
+theme_override_font_sizes/font_size = 24
+text = "Erick Bonruque"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info4" type="Label" parent="GUI/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101961, 0.678431, 1, 1)
+theme_override_fonts/font = ExtResource("11_70iyc")
+theme_override_font_sizes/font_size = 24
+text = "Gabriel H. A. Spacki"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="GUI/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="GUI/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Info" type="Label" parent="GUI/VBoxContainer/HBoxContainer2/VBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101961, 0.678431, 1, 1)
+theme_override_fonts/font = ExtResource("11_70iyc")
+theme_override_font_sizes/font_size = 24
+text = "Time de Testes e documentaçao"
+horizontal_alignment = 2
+
+[node name="HSeparator" type="HSeparator" parent="GUI/VBoxContainer/HBoxContainer2/VBoxContainer3"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_7xtcy")
+
+[node name="Info2" type="Label" parent="GUI/VBoxContainer/HBoxContainer2/VBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101961, 0.678431, 1, 1)
+theme_override_fonts/font = ExtResource("11_70iyc")
+theme_override_font_sizes/font_size = 24
+text = "Daniele O. Costa"
+horizontal_alignment = 2
+
+[node name="Info3" type="Label" parent="GUI/VBoxContainer/HBoxContainer2/VBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101961, 0.678431, 1, 1)
+theme_override_fonts/font = ExtResource("11_70iyc")
+theme_override_font_sizes/font_size = 24
+text = "Cezar H. Uekita"
+horizontal_alignment = 2
+
+[node name="Fade Transiction" parent="." instance=ExtResource("11_ou8fw")]
+visible = false
+layout_mode = 0
+
+[node name="fade_timer" type="Timer" parent="Fade Transiction"]
+
+[node name="button_hover_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_jkxqr")
+volume_db = -10.0
+
+[node name="music_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_a835q")
+volume_db = -20.0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 944.0
+offset_top = 560.0
+offset_right = 1408.0
+offset_bottom = 744.0
+scale = Vector2(0.64, 0.64)
+theme = SubResource("Theme_uqspx")
+
+[node name="Utfpr" type="Sprite2D" parent="Panel"]
+position = Vector2(232, 88)
+texture = ExtResource("14_4gseo")
+
+[connection signal="mouse_entered" from="GUI/CenterContainer/Menu" to="." method="_on_menu_hover"]

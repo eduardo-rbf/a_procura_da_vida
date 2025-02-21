@@ -38,34 +38,6 @@ var levels_data: Dictionary = {
 		false,                                                      #Level Unlocked
 		false,                                                      #Level Completed
 		false
-	],
-	
-	6: [
-		"res://scenes/levels/level_6.tscn",
-		false,                                                      #Level Unlocked
-		false,                                                      #Level Completed
-		false
-	],
-	
-	7: [
-		"res://scenes/levels/level_7.tscn",
-		false,                                                      #Level Unlocked
-		false,                                                      #Level Completed
-		false
-	],
-	
-	8: [
-		"res://scenes/levels/level_8.tscn",
-		false,                                                      #Level Unlocked
-		false,                                                      #Level Completed
-		false
-	],
-	
-	9: [
-		"res://scenes/levels/level_9.tscn",
-		false,                                                      #Level Unlocked
-		false,                                                      #Level Completed
-		false
 	]
 }
 

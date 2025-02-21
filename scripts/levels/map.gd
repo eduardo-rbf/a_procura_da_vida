@@ -8,6 +8,7 @@ func _ready():
 	var first_layer = $Level_layer
 	
 	layers.append(first_layer) #layer 0
+	first_layer.z_index = 0
 	var next_layer = first_layer.find_child("Level_layer")
 	while(next_layer): #every layer between floor and any other must be occupied even if empty
 		layers.append(next_layer)

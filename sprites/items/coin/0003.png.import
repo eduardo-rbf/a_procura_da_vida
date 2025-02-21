@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://idm6f8dt88qn"
-path="res://.godot/imported/novo_jogo.png-cf7030cdfe7b0d5574ab242a46840cfc.ctex"
+uid="uid://dyot7mlqc7wjv"
+path="res://.godot/imported/0003.png-d2ee6bee1600581d0aacc7bbf7dc7dc9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/menu/buttons/novo_jogo.png"
-dest_files=["res://.godot/imported/novo_jogo.png-cf7030cdfe7b0d5574ab242a46840cfc.ctex"]
+source_file="res://sprites/items/coin/0003.png"
+dest_files=["res://.godot/imported/0003.png-d2ee6bee1600581d0aacc7bbf7dc7dc9.ctex"]
 
 [params]
 

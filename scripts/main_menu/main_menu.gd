@@ -8,6 +8,7 @@ var scene = null
 
 func _ready() -> void:
 	# Música
+	$"Fade Transiction".fade_in()
 	$music_player.play(0)
 
 	# Animações
@@ -31,20 +32,14 @@ func on_button_pressed(button_name: String) -> void:
 		"LevelSelector":
 			scene =  "res://scenes/level_selector/level_selector.tscn"
 			
+		"Credits":
+			scene = "res://scenes/credits/credits.tscn"
+			
 		"Quit":
 			get_tree().quit()
 
 func _on_fade_timer_timeout() -> void:
 	get_tree().change_scene_to_file(scene)
 
-
-func _on_new_game_mouse_entered() -> void:
-	$button_hover_player.play(0)
-
-
-func _on_level_selector_mouse_entered() -> void:
-	$button_hover_player.play(0)
-
-
-func _on_quit_mouse_entered() -> void:
+func _on_menu_hover() -> void:
 	$button_hover_player.play(0)
