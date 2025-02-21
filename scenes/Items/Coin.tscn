@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c4tgiql3l2h16" path="res://sprites/items/coin/0012.png" id="13_q3rgd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iya2l"]
-radius = 15.0
+radius = 12.0
 
 [sub_resource type="Animation" id="Animation_yd0kq"]
 length = 0.001
@@ -57,6 +57,8 @@ _data = {
 }
 
 [node name="Coin" type="Area2D"]
+z_index = 1
+y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_5601e")
 
@@ -64,6 +66,8 @@ script = ExtResource("1_5601e")
 shape = SubResource("CircleShape2D_iya2l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -20)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_5uo64")
 

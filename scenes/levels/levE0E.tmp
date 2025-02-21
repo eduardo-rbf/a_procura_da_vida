@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bu0ghvyprf472" path="res://scenes/levels/map_layer.tscn" id="4_ymvmt"]
 [ext_resource type="PackedScene" uid="uid://d1crxsikq8fog" path="res://scenes/player/player.tscn" id="5_ohvi3"]
 [ext_resource type="PackedScene" uid="uid://dvy6pm68lwngk" path="res://scenes/commands/commands.tscn" id="6_8us27"]
-[ext_resource type="Script" path="res://scripts/levels/base_script.gd" id="7_areny"]
+[ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="7_audw4"]
 [ext_resource type="PackedScene" uid="uid://br1i6o4s2s6lj" path="res://scenes/Items/Coin.tscn" id="7_r56bn"]
 [ext_resource type="PackedScene" uid="uid://dqibt6jjc6ks5" path="res://scenes/hud/coin_hud.tscn" id="8_6tf85"]
 [ext_resource type="FontFile" uid="uid://fg48b4w15c1a" path="res://resources/roboto_dynamic_font.tres" id="9_bgp0y"]
@@ -42,7 +42,7 @@ offset_bottom = 488.0
 Player = NodePath("../Player")
 
 [node name="LevelScript" type="Node" parent="."]
-script = ExtResource("7_areny")
+script = ExtResource("7_audw4")
 
 [node name="coins" type="Node2D" parent="."]
 top_level = true
@@ -68,4 +68,3 @@ text = "Fases"
 volume_db = -20.0
 
 [connection signal="exec_finished" from="Commands" to="." method="_on_commands_exec_finished"]
-[connection signal="dialog_initiated" from="LevelScript" to="." method="_on_dialog_initiated"]

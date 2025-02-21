@@ -1,6 +1,7 @@
 extends Node
 
 signal reset_level
+signal exec_finished
 
 @export var Player: Node2D
 var test: int = 2
@@ -83,6 +84,7 @@ func _on_command_grid_cmd_ready(cmd_pack: Variant) -> void:
 			_on_reset_pressed()
 			halt_flag = false
 		cmd_busy = false
+		exec_finished.emit()
 	
 	#do other stuff, propagate signal, whatever
 

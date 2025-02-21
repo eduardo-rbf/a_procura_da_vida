@@ -11,19 +11,7 @@ var coin_hud: PackedScene = preload("res://scenes/hud/coin_hud.tscn")
 @onready var Map = $Map
 @onready var Commands = $Commands
 
-var _dialog_data: Dictionary = {
-	0: {
-		"faceset": "res://sprites/portraits/placeholder.jpg",
-		"dialog": "Olá, seja bem vindo!",
-		"title": "O Desenvolvedor"
-	},
-
-	1: {
-		"faceset": "res://sprites/portraits/placeholder.jpg",
-		"dialog": "Espero que você aproveite o game :)",
-		"title": "O Desenvolvedor"
-	},
-}
+#LevelScript as dialog coordinator.
 
 @export_category("Objects")
 @export var _hud: CanvasLayer = null
@@ -38,12 +26,13 @@ func _ready() -> void:
 		print("Erro: _hud não foi configurado corretamente no editor.")
 
 	$"Fade Transiction".fade_in()
-
-	var _new_dialog: DialogScreen = _DIALOG_SCREEN.instantiate()
-	_new_dialog.data = _dialog_data
-	_hud.add_child(_new_dialog)
 	
 	_connect_level_buttons()
+
+func _on_dialog_initiated(dialog_data):
+	var _new_dialog: DialogScreen = _DIALOG_SCREEN.instantiate()
+	_new_dialog.data = dialog_data
+	_hud.add_child(_new_dialog)
 
 func _connect_level_buttons() -> void:
 	var fases_button = get_node_or_null("HUD/fases_button")
@@ -56,6 +45,10 @@ func _on_fases_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/level_selector/level_selector.tscn")
 	return
 
-func level_reset():
+func level_reset():#this should be a better place to reset the player and coins and stuff
 	pass
 	
+
+
+func _on_commands_exec_finished() -> void:
+	pass # Replace with function body.
