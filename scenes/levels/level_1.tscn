@@ -21,9 +21,6 @@ start_rot = 2
 [node name="LevelScript" parent="." index="3"]
 script = ExtResource("3_frhmu")
 
-[node name="coins" parent="." index="4"]
-top_level = false
-
 [node name="Coin" parent="coins" index="0"]
 position = Vector2(480, 539)
 
@@ -35,3 +32,4 @@ position = Vector2(352, 476)
 
 [node name="music_player" parent="." index="7"]
 stream = ExtResource("10_52op5")
+autoplay = true

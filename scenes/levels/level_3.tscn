@@ -35,3 +35,4 @@ position = Vector2(353, 348)
 
 [node name="music_player" parent="." index="7"]
 stream = ExtResource("4_g8moh")
+autoplay = true
