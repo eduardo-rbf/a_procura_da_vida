@@ -116,7 +116,9 @@ func _input(event: InputEvent) -> void:
 func move(direction):
 	if moving:
 		return "busy"
-		
+	
+	print("at:player.gd::move()", "coords:", player_coord)
+	
 	match direction:
 		"advance": 
 			await advance()
@@ -163,9 +165,11 @@ func turn(direction):
 		"turn_left":
 			rot = wrap(rot - 1, 0, 4)
 			animation_player.play(direction_map[rot]["rotation"], -1, 1.5)
+			await animation_player.animation_finished
 		"turn_right":
 			rot = wrap(rot + 1, 0, 4)
 			animation_player.play(direction_map[rot]["rotation"], -1, 1.5)
+			await animation_player.animation_finished
 			
 	await get_tree().create_timer(0.2).timeout
 	moving = false
@@ -175,12 +179,14 @@ func jump():
 	#if ground ahead and no upper or wall ahead
 	if (query_tile(z_index - 1, target_coord) and !query_tile(z_index, target_coord) or 
 		query_tile(z_index + 1, target_coord) ):
-		jump_in_place() 
+		await jump_in_place() 
 	#else if no wall and no ground ahead
 	elif !query_tile(z_index + 1, target_coord):
-		jump_forward()
+		player_coord = target_coord
+		await jump_forward()
 
 func jump_in_place():
+	pass
 	print("[at:player.gd::jump_in_place()]", "Player has jumped")
 	#play animation, tween up and down.
 
@@ -190,29 +196,31 @@ func jump_forward():
 		position + direction_map[rot]["movement"] * tile_size / 2 + Vector2(0, -20), animation_speed)
 	moving = true
 	animation_player.play(direction_map[rot]["walk"])
+	moving = false
 	z_index += 1
 	await tween.finished
-	moving = false
-	player_coord += next_coord[rot]
+	await animation_player.animation_finished
 	await fall()
 
 func fall():#no floor below after jump
-	pass
 	#try to collide with floor below
 	#ray_cast.target_position = Vector2(0, 0)
 	while(!query_tile(z_index - 1, player_coord)):
-	#	print("[at:player.gd::fall()]", "Not colliding with floor at layer ", z_index, ", falling further.")
+		print("[at:player.gd::fall()]", "Not colliding with floor at layer ", z_index - 1, ", falling further.")
 		if z_index <= 0: 
 			death.emit()
+			reset_position()
 			return "death"
 			
 		z_index -= 1
 		var tween = create_tween()
+		moving = true
 		tween.tween_property(self, "position",
 			Vector2(position.x, position.y + 20), animation_speed / 2)
-		moving = true
-		await  tween.finished
+		await tween.finished
+		#await animation_player.animation_finished #What animation?
 		moving = false
+	return "ok"
 
 func activate():
 	return "TODO"

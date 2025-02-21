@@ -66,9 +66,9 @@ func exec(cmd_sequence: Array, source: Array):
 			await exec(commands["f2"], source + ["f2"])
 		else:
 			if(cmd != "null"):
-				#print("[at:commands.gd::exec()]", 
-				#"attempting to ", cmd, ". Status: ", await Player.move(cmd))
-				await Player.move(cmd)
+				print("[at:commands.gd::exec()]", 
+				"attempting to ", cmd, ". Status: ", await Player.move(cmd))
+				#await Player.move(cmd)
 				#quiet
 			
 
@@ -96,4 +96,4 @@ func _on_reset_pressed() -> void:
 	if Player:
 		Player.reset_position()
 	else:
-		print("[at:commands.gd::_on_reset_pressed]" + "Não foi possível resetar o player, pois ele não foi encontrado.")
+		print("[at:commands.gd::_on_reset_pressed()]" + "Não foi possível resetar o player, pois ele não foi encontrado.")

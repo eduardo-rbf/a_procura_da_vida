@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://ui5o6toquqe3" path="res://sprites/items/coin/0011.png" id="12_2elam"]
 [ext_resource type="Texture2D" uid="uid://c4tgiql3l2h16" path="res://sprites/items/coin/0012.png" id="13_q3rgd"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_iya2l"]
-radius = 12.0
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_go7hm"]
+points = PackedVector2Array(16, 0, 0, 8, -16, 0, 0, -8)
 
 [sub_resource type="Animation" id="Animation_yd0kq"]
 length = 0.001
@@ -63,7 +63,7 @@ collision_layer = 2
 script = ExtResource("1_5601e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_iya2l")
+shape = SubResource("ConvexPolygonShape2D_go7hm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true

@@ -14,14 +14,14 @@ tile_map_data = PackedByteArray("AAAQAAIABgAAAAAAAAAQAAMABgAAAAAAAAAQAAQABgAAAAA
 [node name="Level_layer" parent="Map/Level_layer" index="0" instance=ExtResource("2_yhf6s")]
 tile_map_data = PackedByteArray("AAAdAAIABgAAAAAAAAAdAAMABgAAAAAAAAAdAAQABgAAAAAAAAAdAAUABgAAAAAAAAAdAAYABgAAAAAAAAAdAAcABgAAAAAAAAAdAAgABgAAAAAAAAAdAAkABgAAAAAAAAAdAAoABgAAAAAAAAAdAAsABgAAAAAAAAAdAAwABgAAAAAAAAAdAA0ABgAAAAAAAAAdAA4ABgAAAAAAAAAdAA8ABgAAAAAAAAAcAA8ABgAAAAAAAAAbAA8ABgAAAAAAAAAaAA8ABgAAAAAAAAAZAA8ABgAAAAAAAAAYAA8ABgAAAAAAAAAXAA8ABgAAAAAAAAAWAA8ABgAAAAAAAAAVAA8ABgAAAAAAAAAUAA8ABgAAAAAAAAATAA8ABgAAAAAAAAASAA8ABgAAAAAAAAARAA8ABgAAAAAAAAAQAA8ABgAAAAAAAAAQAA4ABgAAAAAAAAAQAA0ABgAAAAAAAAAQAAwABgAAAAAAAAAQAAsABgAAAAAAAAAQAAUABgAAAAAAAAAQAAQABgAAAAAAAAAQAAMABgAAAAAAAAAQAAIABgAAAAAAAAARAAIABgAAAAAAAAASAAIABgAAAAAAAAATAAIABgAAAAAAAAAUAAIABgAAAAAAAAAVAAIABgAAAAAAAAAWAAIABgAAAAAAAAAXAAIABgAAAAAAAAAYAAIABgAAAAAAAAAZAAIABgAAAAAAAAAaAAIABgAAAAAAAAAbAAIABgAAAAAAAAAcAAIABgAAAAAAAAA=")
 
-[node name="Player" parent="." index="1"]
+[node name="Player" parent="." index="2"]
 start_coord = Vector3(26, 10, 1)
 start_rot = 2
 
-[node name="LevelScript" parent="." index="3"]
+[node name="LevelScript" parent="." index="4"]
 script = ExtResource("3_frhmu")
 
-[node name="coins" parent="." index="4"]
+[node name="coins" parent="." index="5"]
 top_level = false
 
 [node name="Coin" parent="coins" index="0"]
@@ -32,6 +32,9 @@ position = Vector2(416, 508)
 
 [node name="Coin3" parent="coins" index="2" instance=ExtResource("9_kxry8")]
 position = Vector2(352, 476)
+
+[node name="coin_hud" parent="HUD" index="0"]
+metadata/_edit_lock_ = true
 
 [node name="music_player" parent="." index="7"]
 stream = ExtResource("10_52op5")

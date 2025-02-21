@@ -9,16 +9,6 @@ func _ready() -> void:
 	update_display()
 	current_level = get_current_level_number()
 
-	var commands = get_node_or_null("/root/Commands")
-	if not commands:
-		commands = get_tree().get_root().find_child("Commands", true, false)
-	
-	if commands:
-		print("Commands encontrado, conectando sinal...")
-		commands.reset_level.connect(_on_reset_level)
-	else:
-		print("ERRO: Não foi possível encontrar o nó Commands!")
-
 func connect_all_coins() -> void:
 	var coins = get_tree().get_nodes_in_group("coins")
 	total_coins = coins.size()
@@ -43,6 +33,8 @@ func _on_reset_level() -> void:
 	for coin in coins:
 		coin.reset_coin()
 
+#2 coins = complete
+#all coins = perfect
 func check_level_completion() -> void:
 	if collected_coins >= 2:
 		Global.levels_data[current_level][2] = true
@@ -50,7 +42,7 @@ func check_level_completion() -> void:
 		if Global.levels_data.has(current_level + 1):
 			Global.levels_data[current_level + 1][1] = true
 		
-		if collected_coins >= 3:
+		if collected_coins == total_coins:
 			Global.levels_data[current_level][3] = true
 			
 		Global.read_dict()

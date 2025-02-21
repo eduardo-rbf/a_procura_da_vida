@@ -8,6 +8,7 @@ func _ready() -> void:
 
 func on_button_pressed(button_name: String) -> void:
 	if button_name == "Menu":
+		await $"Fade Transiction".fade_out()
 		var _change_level: bool = get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
 		return
 		

@@ -16,9 +16,6 @@ y_sort_enabled = true
 script = ExtResource("1_8d8nh")
 _hud = NodePath("HUD")
 
-[node name="Fade Transiction" parent="." instance=ExtResource("2_jrmjc")]
-visible = false
-
 [node name="Map" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("3_ps84t")
@@ -45,7 +42,6 @@ Player = NodePath("../Player")
 script = ExtResource("7_areny")
 
 [node name="coins" type="Node2D" parent="."]
-top_level = true
 y_sort_enabled = true
 
 [node name="Coin" parent="coins" instance=ExtResource("7_r56bn")]
@@ -54,6 +50,7 @@ position = Vector2(224, 224)
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="coin_hud" parent="HUD" instance=ExtResource("8_6tf85")]
+metadata/_edit_lock_ = true
 
 [node name="fases_button" type="Button" parent="HUD" groups=["Button"]]
 offset_left = 23.0
@@ -64,8 +61,17 @@ focus_mode = 0
 theme_override_fonts/font = ExtResource("9_bgp0y")
 text = "Fases"
 
+[node name="Fade Transiction" parent="." instance=ExtResource("2_jrmjc")]
+visible = false
+top_level = true
+z_index = 200
+metadata/_edit_lock_ = true
+
 [node name="music_player" type="AudioStreamPlayer" parent="."]
 volume_db = -20.0
 
+[connection signal="death" from="Player" to="." method="_on_player_death"]
+[connection signal="death" from="Player" to="HUD/coin_hud" method="_on_reset_level"]
 [connection signal="exec_finished" from="Commands" to="." method="_on_commands_exec_finished"]
+[connection signal="reset_level" from="Commands" to="HUD/coin_hud" method="_on_reset_level"]
 [connection signal="dialog_initiated" from="LevelScript" to="." method="_on_dialog_initiated"]

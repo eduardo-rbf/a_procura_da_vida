@@ -1,13 +1,18 @@
 extends ColorRect
 
-func fade_out() -> void:
-	show()
-	$fade_timer.start()
-	$AnimationPlayer.play("fade_out")
+signal fade_finished
 
-func fade_in() -> void:
+func fade_out():
+	show()
+	$AnimationPlayer.play("fade_out")
+	await $AnimationPlayer.animation_finished
+	return fade_finished
+
+func fade_in():
 	show()
 	$AnimationPlayer.play("fade_in")
+	await $AnimationPlayer.animation_finished
+	return fade_finished
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

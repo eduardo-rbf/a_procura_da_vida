@@ -42,13 +42,31 @@ func _connect_level_buttons() -> void:
 		print("ERRO: Botão 'fases_button' não encontrado!")
 
 func _on_fases_button_pressed() -> void:
+	await $"Fade Transiction".fade_out()
 	get_tree().change_scene_to_file("res://scenes/level_selector/level_selector.tscn")
 	return
 
 func level_reset():#this should be a better place to reset the player and coins and stuff
 	pass
 	
-
-
 func _on_commands_exec_finished() -> void:
+	var cur_lvl = get_current_level_number()
+	if Global.levels_data[cur_lvl][2] == true:
+		await $"Fade Transiction".fade_out()
+		if Global.levels_data.has(cur_lvl + 1):
+			get_tree().change_scene_to_file(Global.levels_data[cur_lvl + 1][0])
+		else:
+			get_tree().change_scene_to_file("res://scenes/credits/credits.tscn")
+		#advance
+		pass
+
+func get_current_level_number() -> int:
+	var scene_path = get_tree().current_scene.scene_file_path
+	for level in Global.levels_data:
+		if Global.levels_data[level][0] == scene_path:
+			return level
+	return 1
+
+
+func _on_player_death() -> void:
 	pass # Replace with function body.

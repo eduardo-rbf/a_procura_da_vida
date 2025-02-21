@@ -38,17 +38,13 @@ func initial_configuration() -> void:
 			
 func on_button_pressed(button_name: String) -> void:
 	if button_name == "Menu":
-		$"Fade Transiction".fade_out()
-		$"Fade Transiction/fade_timer".start()
-		await $"Fade Transiction/fade_timer".timeout
+		await $"Fade Transiction".fade_out()
 		var _change_level: bool = get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
 		return
 		
 	var level_info: Array = Global.levels_data[int(button_name)]
 	if level_info[1]:
-		$"Fade Transiction".fade_out() #sheesh
-		$"Fade Transiction/fade_timer".start()
-		await $"Fade Transiction/fade_timer".timeout
+		await $"Fade Transiction".fade_out()
 		print("Mudar para o nível: " + button_name + "\n")
 		var _change_level: bool = get_tree().change_scene_to_file(level_info[0])
 	else:

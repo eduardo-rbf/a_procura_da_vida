@@ -23,6 +23,7 @@ func _ready() -> void:
 		
 func on_button_pressed(button_name: String) -> void:
 	$"Fade Transiction".fade_out()
+	$"Fade Transiction/fade_timer".start()
 	button_type = button_name
 	
 	match button_name:
